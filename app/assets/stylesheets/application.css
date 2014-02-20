@@ -1,13 +1,108 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
+body{
+  margin:0;
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+}
+
+#login {
+  text-align: right;
+  padding-right: 20px;
+  padding-top:20px;
+}
+
+#signup {
+  display:inline;
+  padding: 0 15px;
+  text-decoration: none;
+}
+
+.nav-links li {
+  display:inline;
+  padding: 0 15px;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.nav-links a {
+  color: white;
+  font-size: 26px;
+  text-decoration: none;
+}
+
+#sign{
+  float: right;
+  padding-right: 30px;
+  padding-left: 30px;
+  font-family: 'Averia Libre', cursive;
+}
+
+.nav-links ul {
+  background-color: #33CC33;
+  height:70px;
+  margin: 0;
+  padding-left: 0;
+  padding-top:20px;
+  list-style:none;
+}
+
+a:hover {
+  color:#0066FF;
+}
+
+#song {
+  text-align: center;
+  padding-top: 500px;
+}
+
+#log {
+  text-align: right;
+  margin: 0;
+}
+
+#log p {
+display: inline;
+}
+
+#log form{
+   width: 40%;
+   float: right;
+   margin: 0;
+   color:white;
+   font-family: 'Averia Libre', cursive;
+
+}
+
+#logo{
+  font-size: 50px;
+  font-family: 'Kavoon', cursive;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
