@@ -49,6 +49,7 @@ $(document).ready(function() {
       console.log(status)
       if (status == google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
+        map.setZoom(13)
         var marker = new google.maps.Marker({
             map: map,
             position: results[0].geometry.location
