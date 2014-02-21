@@ -15,7 +15,7 @@
 
  <div class="nav-links">
   <ul>
-    <li><a href="/" id="logo">SoundMap</a></li>
+    <li><a href="javascript:history.go(0)" id="logo">SoundMap</a></li>
     <% if session[:current_user_id] %>
     <li id="logout"><%= link_to "Sign Out", logout_path %></li>
     <li id="profile_link"><%= link_to "My Profile", user_path(session[:current_user_id])%></li>
