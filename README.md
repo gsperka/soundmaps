@@ -20,7 +20,7 @@ Start a local server on your machine by using the following command.
 
 1) rails server
 
-Open browser and enter the URL 'localhost:3000' to view SoundMap. Using the URL http://0.0.0.0:3000 will result in a invalid Google Maps API key.
+Open browser and enter the URL 'localhost:3000' to view SoundMap.
 
 Group Members:
 ==============
