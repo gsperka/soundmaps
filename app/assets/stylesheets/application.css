@@ -83,7 +83,15 @@ display: inline;
 
 }
 
+.signuppage {
+  text-align: center;
+  padding-top: 150px;
+  
+}
 
+body {
+  background-image:url(http://subtlepatterns.com/patterns/old_map.png);
+}
 
 
 
