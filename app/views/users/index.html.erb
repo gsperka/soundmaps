@@ -25,6 +25,9 @@
   </span>
 
   <button id='toggle_markers'>Toggle All Markers</button>
+  <% if session[:current_user_id] %>
+    <button id='toggle_user_markers'>Toggle User Markers</button>
+  <% end %>
 </div>
 
 

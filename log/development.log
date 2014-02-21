@@ -15039,3 +15039,1637 @@ Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:26:13 
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:26:13 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:29:48 -0600
+Processing by UsersController#index as HTML
+ERROR: compiling _app_views_users_index_html_erb___789440483822065924_70258852082580 RAISED /Users/apprentice/Desktop/soundmaps/app/views/users/index.html.erb:47: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/apprentice/Desktop/soundmaps/app/views/users/index.html.erb:49: syntax error, unexpected end-of-input, expecting keyword_end
+Function body:           def _app_views_users_index_html_erb___789440483822065924_70258852082580(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "users/index";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.append=  javascript_tag do @output_buffer.safe_append='
+  window.tracks = ';@output_buffer.append=(raw Track.all.to_json );@output_buffer.safe_append='
+'; end 
+@output_buffer.safe_append='
+'; if session[:current_user_id] 
+@output_buffer.safe_append='  ';@output_buffer.append=  javascript_tag do @output_buffer.safe_append='
+    window.user_tracks = ';@output_buffer.append=(raw User.find(session[:current_user_id]).tracks.to_json );@output_buffer.safe_append='
+';   end 
+ else 
+@output_buffer.safe_append='  ';@output_buffer.append=  javascript_tag do @output_buffer.safe_append='
+    window.user_tracks = ';@output_buffer.append=( {}.to_json );@output_buffer.safe_append='
+';   end 
+ end 
+@output_buffer.safe_append='
+<div id="map-canvas"></div>
+
+<div id=\'footer\'>
+  <form id=\'geocoder\'>
+    <input id=\'geocode_bar\' id=\'address\' type=\'textbox\' name=\'location\' value=\'351 W. Hubbard Chicago, IL\'>
+    <input type=\'submit\' value=\'Find Location\'>
+  </form>
+
+  <span id=\'song\'>
+    <audio controls></audio>
+  </span>
+
+  <button id=\'toggle_markers\'>Toggle All Markers</button>
+';   if session[:current_user_id] 
+@output_buffer.safe_append='    <button id=\'toggle_user_markers\'>Toggle User Markers</button>
+</div>
+
+
+  <div id=\'song\'>
+    <audio id=\'player\' autoplay controls>
+  </div>
+<div id="overlay"></div>
+
+
+<div id="login_modal">
+  ';@output_buffer.append=( render '/sessions/login' );@output_buffer.safe_append='
+</div>
+
+<div id="signup_modal">
+  ';@output_buffer.append=( render '/users/new' );@output_buffer.safe_append='
+</div>
+';@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:299:in `module_eval'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:299:in `compile'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:248:in `block in compile!'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:236:in `synchronize'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:236:in `compile!'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:142:in `block in render'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications.rb:161:in `instrument'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:141:in `render'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `block in instrument'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `instrument'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/renderer.rb:23:in `render'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:97:in `render'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:16:in `render'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/base.rb:189:in `process_action'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:403:in `_run__3993804417246036858__process_action__callbacks'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `block in instrument'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `instrument'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/base.rb:136:in `process'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:44:in `process'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal.rb:195:in `dispatch'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal.rb:231:in `block in action'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:59:in `each'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:59:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:680:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/query_cache.rb:36:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/migration.rb:369:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:373:in `_run__3724893104430530584__call__callbacks'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/railties-4.0.2/lib/rails/rack/logger.rb:38:in `call_app'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `block in call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:25:in `tagged'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `tagged'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/static.rb:64:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/railties-4.0.2/lib/rails/engine.rb:511:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/railties-4.0.2/lib/rails/application.rb:97:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+/Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+  Rendered users/index.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (/Users/apprentice/Desktop/soundmaps/app/views/users/index.html.erb:47: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/apprentice/Desktop/soundmaps/app/views/users/index.html.erb:49: syntax error, unexpected end-of-input, expecting keyword_end):
+    44:   <%= render '/users/new' %>
+    45: </div>
+  actionpack (4.0.2) lib/action_view/template.rb:299:in `module_eval'
+  actionpack (4.0.2) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.2) lib/action_view/template.rb:248:in `block in compile!'
+  actionpack (4.0.2) lib/action_view/template.rb:236:in `synchronize'
+  actionpack (4.0.2) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.2) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.2) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.2) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:403:in `_run__3993804417246036858__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__3724893104430530584__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:29:58 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.7ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.8ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.8ms)
+  Rendered users/_new.html.erb (0.8ms)
+  Rendered users/index.html.erb within layouts/application (71.1ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 76ms (Views: 73.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:29:58 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:29:58 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:29:58 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:29:58 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:29:58 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:29:58 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:32:35 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.9ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.5ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.7ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (37.6ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 72ms (Views: 69.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:32:35 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:32:35 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:32:35 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:32:35 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:32:35 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:32:35 -0600
+  [1m[36mUser Load (2.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (1.1ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "tracks"[0m
+  [1m[35mTrack Load (0.7ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = 2
+  [1m[36mTrack Load (1.0ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = 1[0m
+  [1m[35mTrack Load (0.9ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = 0
+  [1m[36mTrack Load (0.6ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IS NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (16.8ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "A qui sunt autem non totam optio reprehenderit."], ["latitude", -41], ["longitude", 145], ["title", "nostrum"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://lockman.name/quinn"], ["user_id", 1]]
+  [1m[35m (16.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Perferendis dolores reprehenderit quia modi."], ["latitude", -60], ["longitude", 14], ["title", "dolorum"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://jerde.info/verda"], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Nisi doloremque omnis id."], ["latitude", -28], ["longitude", 157], ["title", "possimus"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://rennervonrueden.biz/dana_hane"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Minima quo officiis fuga blanditiis."], ["latitude", -14], ["longitude", -57], ["title", "consequatur"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://mccullough.com/cory"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Molestiae omnis architecto quae beatae facilis ut minus commodi."], ["latitude", 12], ["longitude", -156], ["title", "repudiandae"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://deckow.info/madilyn"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Ipsum autem architecto qui necessitatibus laudantium sequi vel."], ["latitude", 8], ["longitude", 179], ["title", "accusantium"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://thompson.name/woodrow.blanda"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Illum reiciendis consectetur numquam qui quasi."], ["latitude", -49], ["longitude", 15], ["title", "tempore"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://parisian.name/curt"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Delectus ut architecto illum."], ["latitude", 69], ["longitude", -92], ["title", "earum"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://schmeler.name/micaela_ko"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Hic quo doloribus inventore ad aliquid."], ["latitude", -2], ["longitude", 109], ["title", "sed"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://grimes.net/michaela"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Odit totam iure aut quidem est quo."], ["latitude", -53], ["longitude", -4], ["title", "quo"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://kozey.info/jakob_swift"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Qui et autem sed quae."], ["latitude", -36], ["longitude", -15], ["title", "reprehenderit"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://kingstrosin.info/carli"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Optio iure esse occaecati id."], ["latitude", 58], ["longitude", 167], ["title", "inventore"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://kundelangworth.org/candida_corkery"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Totam velit non beatae illum consequatur adipisci."], ["latitude", -47], ["longitude", -1], ["title", "recusandae"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://kundeboehm.name/creola"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Eius alias praesentium enim eum et dolore fugiat quis."], ["latitude", -29], ["longitude", 161], ["title", "voluptas"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://swift.net/alexis"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Soluta quia necessitatibus esse distinctio natus facilis."], ["latitude", 80], ["longitude", 134], ["title", "sapiente"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://gerlach.com/jett.moore"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Provident eos culpa atque et modi animi non quos."], ["latitude", 87], ["longitude", -122], ["title", "et"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://brakus.net/gunner.gulgowski"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Voluptatem enim labore quae commodi."], ["latitude", 6], ["longitude", 143], ["title", "et"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://quigley.net/tavares.nader"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Laudantium aut aut qui et."], ["latitude", -85], ["longitude", 61], ["title", "maiores"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://prohaska.name/raquel.gaylord"], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Reprehenderit incidunt qui at sint veritatis et ut cum."], ["latitude", -12], ["longitude", -169], ["title", "iure"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://dooleycole.name/robb"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Consequatur omnis illo ut et."], ["latitude", -87], ["longitude", -111], ["title", "quisquam"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://volkmanhartmann.com/cesar"], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Maiores laboriosam illo deleniti dolor rem sunt."], ["latitude", 74], ["longitude", 9], ["title", "dolores"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://cain.name/vada_bins"], ["user_id", 2]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Voluptatem eveniet ex similique ipsam doloremque eaque rerum molestiae."], ["latitude", 50], ["longitude", -21], ["title", "ut"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://konopelskistark.info/vivienne.rice"], ["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Voluptas rerum dignissimos explicabo minima at et molestiae."], ["latitude", 63], ["longitude", 175], ["title", "explicabo"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://bins.net/katheryn"], ["user_id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Ad natus et repellat."], ["latitude", 8], ["longitude", 51], ["title", "veniam"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://roberts.biz/shanna"], ["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Nesciunt suscipit dolorem aliquam accusantium perferendis est."], ["latitude", -49], ["longitude", 120], ["title", "ipsum"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://tremblay.info/pink.damore"], ["user_id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Nemo non accusamus dolore."], ["latitude", 86], ["longitude", -34], ["title", "voluptatem"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://cole.net/dangelo"], ["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Doloribus nemo sint aliquid."], ["latitude", -4], ["longitude", -133], ["title", "vel"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://balistrerihaag.net/daron"], ["user_id", 2]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Amet rem repellendus ut cupiditate."], ["latitude", 74], ["longitude", -6], ["title", "a"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://weinatgutmann.name/shayna"], ["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Dicta repudiandae esse ad."], ["latitude", -69], ["longitude", 162], ["title", "iure"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://pfannerstill.name/brooke"], ["user_id", 2]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "In itaque iste excepturi deserunt provident autem quam."], ["latitude", -65], ["longitude", 7], ["title", "et"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://jakubowskihauck.name/judson_moen"], ["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Esse magni at sit dolores."], ["latitude", 20], ["longitude", 54], ["title", "qui"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://wuckertreinger.name/abby.lang"], ["user_id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Error dicta ipsam corporis."], ["latitude", -4], ["longitude", 15], ["title", "doloribus"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://kleinkerluke.info/perry_gleichner"], ["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Culpa magni quia amet reprehenderit eaque quibusdam aliquam eum."], ["latitude", -34], ["longitude", -83], ["title", "qui"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://wolffbogan.net/dino.medhurst"], ["user_id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Cum ut ratione cumque mollitia rerum saepe."], ["latitude", -20], ["longitude", -23], ["title", "voluptatem"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://botsford.name/yeenia.walsh"], ["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Aut consequatur libero dolores quas quis id rerum exercitationem."], ["latitude", 60], ["longitude", -129], ["title", "iusto"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://trantow.com/mathias_bode"], ["user_id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Perferendis incidunt asperiores aut ipsam sed."], ["latitude", 5], ["longitude", 135], ["title", "est"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://gusikowskirau.org/libby_hamill"], ["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Aut non et vel."], ["latitude", 83], ["longitude", 101], ["title", "non"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://moore.name/boris"], ["user_id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Animi aut vitae unde sed."], ["latitude", 70], ["longitude", -24], ["title", "qui"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://rath.com/wendy.lowe"], ["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Distinctio iste nisi ea eligendi quibusdam et ipsum."], ["latitude", 35], ["longitude", -161], ["title", "repellendus"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://farrellgorczany.org/kaci.little"], ["user_id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["description", "Expedita doloribus nostrum sed iste sed laudantium."], ["latitude", 39], ["longitude", -72], ["title", "optio"], ["updated_at", Fri, 21 Feb 2014 22:37:06 UTC +00:00], ["url", "http://kerlukereichel.name/andy_langosh"], ["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140220152811)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying(255), "email" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140220152811"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTracks (20140220152828)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "tracks" ("id" serial primary key, "user_id" integer, "longitude" integer, "latitude" integer, "title" character varying(255), "description" text, "url" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140220152828"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to AddAttatchmentFieldToTracks (20140221173258)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "tracks" ADD COLUMN "clip_file_name" character varying(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "tracks" ADD COLUMN "clip_content_type" character varying(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "tracks" ADD COLUMN "clip_file_size" integer[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "tracks" ADD COLUMN "clip_updated_at" timestamp
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140221173258"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["password_digest", "$2a$10$ECCvJHpuufW17ntA7ok63.joJ/Q9oxvsK9uqq/QNyampyDNb08D3C"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["username", "user1"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Sunt consequuntur consequatur odio."], ["latitude", 64], ["longitude", 108], ["title", "minus"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://abernathy.com/graciela"], ["user_id", 1]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Rerum fugit error voluptatibus amet."], ["latitude", -14], ["longitude", -30], ["title", "perspiciatis"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://mayert.net/nat"], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Non ipsum quisquam expedita odio."], ["latitude", -9], ["longitude", -49], ["title", "impedit"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://johnslubowitz.net/meggie"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Eveniet impedit et quasi amet placeat."], ["latitude", -60], ["longitude", 107], ["title", "tenetur"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://keler.name/raquel"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Voluptates rerum et saepe mollitia et."], ["latitude", 18], ["longitude", 155], ["title", "rerum"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://deckow.org/marta"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Tempore tenetur quidem iure quisquam consequuntur."], ["latitude", -15], ["longitude", -43], ["title", "velit"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://bogan.org/mercedes"], ["user_id", 1]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Tenetur quod rerum nemo facere aspernatur inventore."], ["latitude", -50], ["longitude", -88], ["title", "possimus"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://okeefe.org/zita"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Recusandae quasi et adipisci."], ["latitude", -65], ["longitude", -108], ["title", "repellendus"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://haag.name/harley_brekke"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Quia et nemo rerum velit fugiat et laboriosam."], ["latitude", 46], ["longitude", -120], ["title", "praesentium"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://cristbernier.biz/johnpaul.windler"], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Molestias sed velit rem dignissimos et architecto."], ["latitude", -23], ["longitude", -128], ["title", "architecto"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://stokes.com/lucile_mitchell"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Voluptate est eos sed aliquam."], ["latitude", 11], ["longitude", 117], ["title", "similique"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://haleyberge.net/sam_quigley"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Minus voluptatem sed qui deserunt doloremque earum dolor voluptatem."], ["latitude", 71], ["longitude", -51], ["title", "consequatur"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://walker.net/antoinette.veum"], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Ut aut commodi et autem nihil dolores odio facilis."], ["latitude", -15], ["longitude", -15], ["title", "qui"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://schimmel.com/calista_ruecker"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Adipisci dolorum nesciunt atque."], ["latitude", -65], ["longitude", -96], ["title", "velit"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://hartmannoberbrunner.info/hobart"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Sit ab facilis quia rerum earum dolor et corrupti."], ["latitude", 46], ["longitude", -156], ["title", "quis"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://kingconsidine.net/josiane"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Culpa quae ut non ex similique."], ["latitude", -5], ["longitude", -73], ["title", "enim"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://beattyokeefe.org/coralie.bernier"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Fugiat sapiente nam dolor ipsam at mollitia repudiandae."], ["latitude", 51], ["longitude", -106], ["title", "voluptatibus"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://thiel.com/ralph_nienow"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Quos ut est tenetur sit cum nulla."], ["latitude", 0], ["longitude", -160], ["title", "odit"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://walker.net/matt_dubuque"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Iure qui pariatur et corrupti dolorem tempore quidem."], ["latitude", -21], ["longitude", -40], ["title", "enim"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://mosciski.com/effie"], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Distinctio exercitationem totam expedita consequatur."], ["latitude", 88], ["longitude", -100], ["title", "libero"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://leuschke.biz/sanford"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Explicabo expedita alias et quaerat vitae."], ["latitude", -61], ["longitude", 56], ["title", "fugiat"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://hickle.name/dorthy.rowe"], ["user_id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Vel eaque quam architecto."], ["latitude", -66], ["longitude", -152], ["title", "labore"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://borerwatsica.info/irving"], ["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Ut cum veritatis velit laborum dolorum."], ["latitude", 71], ["longitude", -123], ["title", "accusamus"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://hegmann.name/matt_skiles"], ["user_id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Vel soluta id atque."], ["latitude", -33], ["longitude", 141], ["title", "nisi"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://wiza.com/rosalind_lubowitz"], ["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Fugit eveniet voluptas deleniti inventore vel corrupti."], ["latitude", -13], ["longitude", 15], ["title", "laudantium"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://fadelgrant.com/tiana"], ["user_id", 2]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Temporibus aut eum officiis porro."], ["latitude", 6], ["longitude", -90], ["title", "et"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://dickens.org/deie"], ["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Atque ducimus quibusdam amet quis ipsum veniam."], ["latitude", 63], ["longitude", 79], ["title", "architecto"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://quitzon.com/laisha"], ["user_id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Aliquid iste voluptates pariatur quidem eveniet iure est odio."], ["latitude", -18], ["longitude", -73], ["title", "omnis"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://nienow.biz/doug_lind"], ["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Cum totam nam aspernatur."], ["latitude", -16], ["longitude", 112], ["title", "et"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://nikolausmccullough.name/xzavier_ohara"], ["user_id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Accusamus voluptatem expedita reiciendis aut."], ["latitude", 84], ["longitude", 1], ["title", "totam"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://schaefer.info/eliseo.feest"], ["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Assumenda dolore doloremque magni quaerat labore eos."], ["latitude", 28], ["longitude", 160], ["title", "dolores"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://fahey.biz/carrie"], ["user_id", 2]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Illum aliquid autem debitis illo dolorum mollitia nesciunt commodi."], ["latitude", 42], ["longitude", -47], ["title", "nam"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://reinger.name/margie"], ["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Sequi quasi non minima optio rerum."], ["latitude", 2], ["longitude", 16], ["title", "dolorem"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://kozey.org/beulah.schowalter"], ["user_id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Voluptatem accusantium quod voluptatum."], ["latitude", -66], ["longitude", -22], ["title", "cumque"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://hilll.name/nayeli"], ["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Laborum eaque et voluptatem."], ["latitude", 36], ["longitude", 75], ["title", "nostrum"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://gutkowskischuppe.org/axel_gislason"], ["user_id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Quis temporibus facere nemo officia voluptatem maiores."], ["latitude", 86], ["longitude", -19], ["title", "sunt"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://moriette.org/norberto"], ["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Aut aperiam alias vero assumenda aspernatur rem."], ["latitude", 52], ["longitude", 43], ["title", "eius"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://dickens.biz/minnie_feil"], ["user_id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Corrupti veritatis ipsa aperiam tempora."], ["latitude", -73], ["longitude", 150], ["title", "est"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://jerde.net/dwight"], ["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Eaque enim voluptatum numquam eum neque aliquam sed."], ["latitude", 21], ["longitude", -100], ["title", "quia"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://kaulke.biz/penelope_kris"], ["user_id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["description", "Velit earum vitae aut atque sint minima molestias distinctio."], ["latitude", -43], ["longitude", -71], ["title", "qui"], ["updated_at", Fri, 21 Feb 2014 22:37:24 UTC +00:00], ["url", "http://rennergutmann.com/micah"], ["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:37:37 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.9ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (32.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (1.2ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (3.5ms)
+  Rendered users/_new.html.erb (1.5ms)
+  Rendered users/index.html.erb within layouts/application (117.9ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+Completed 200 OK in 187ms (Views: 139.3ms | ActiveRecord: 38.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:37:38 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:37:38 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:37:38 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:37:38 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:37:38 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:37:38 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:39:22 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.6ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.9ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (1.1ms)
+  Rendered users/_new.html.erb (0.8ms)
+  Rendered users/index.html.erb within layouts/application (26.6ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 63ms (Views: 60.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:39:22 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:39:23 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:39:23 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:39:23 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:39:23 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:39:23 -0600
+
+
+Started GET "/logout" for 127.0.0.1 at 2014-02-21 16:39:33 -0600
+Processing by SessionsController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:39:33 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.9ms)[0m  SELECT "tracks".* FROM "tracks"
+  Rendered sessions/_login.html.erb (1.1ms)
+  Rendered users/_new.html.erb (1.3ms)
+  Rendered users/index.html.erb within layouts/application (18.8ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+Completed 200 OK in 24ms (Views: 22.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:39:35 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.6ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  Rendered sessions/_login.html.erb (0.8ms)
+  Rendered users/_new.html.erb (0.8ms)
+  Rendered users/index.html.erb within layouts/application (16.6ms)
+  Rendered layouts/_navbar.html.erb (0.1ms)
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:39:35 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:39:35 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:39:35 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:39:35 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:39:35 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:39:35 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:39:55 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks"
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.8ms)
+  Rendered users/index.html.erb within layouts/application (16.4ms)
+  Rendered layouts/_navbar.html.erb (0.1ms)
+Completed 200 OK in 68ms (Views: 66.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:39:55 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:39:55 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:39:56 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:39:56 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:39:56 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:39:56 -0600
+
+
+Started POST "/login" for 127.0.0.1 at 2014-02-21 16:40:42 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WDxQId5jc+fI/e08bSzviGmTIQvP5gL6LOYTEWcVUFc=", "session"=>{"username"=>"user1", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'user1' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 77ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:40:42 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.7ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.4ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (1.1ms)
+  Rendered users/index.html.erb within layouts/application (25.0ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 30ms (Views: 27.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:40:42 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:40:42 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:40:42 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:40:42 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:40:42 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:40:42 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:41:06 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.8ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.5ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (24.2ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 76ms (Views: 73.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:41:06 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:41:06 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:41:06 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:41:06 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:41:06 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:41:06 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:42:10 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.4ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (27.7ms)
+  Rendered layouts/_navbar.html.erb (0.2ms)
+Completed 200 OK in 32ms (Views: 29.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:42:10 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:42:10 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:42:10 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:42:10 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:42:10 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:42:10 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:42:17 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.6ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.4ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (23.7ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 28ms (Views: 26.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:42:17 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:42:17 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:42:17 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:42:17 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:42:17 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:42:17 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:42:28 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.4ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.7ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (25.5ms)
+  Rendered layouts/_navbar.html.erb (0.2ms)
+Completed 200 OK in 29ms (Views: 27.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:42:28 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:42:28 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:42:28 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:42:28 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:42:28 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:42:28 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:43:23 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.8ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.6ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (26.1ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 76ms (Views: 73.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:43:23 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:43:23 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:43:23 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:43:23 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:43:23 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:43:23 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:43:28 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.4ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (23.1ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 27ms (Views: 25.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:43:28 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:43:28 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:43:28 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:43:28 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:43:28 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:43:28 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:44:54 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.6ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.4ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (23.4ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 88ms (Views: 86.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:44:54 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:44:54 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:44:54 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:44:54 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:44:54 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:44:54 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:45:06 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.4ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.5ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (23.2ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 74ms (Views: 71.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:45:06 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:45:06 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:45:06 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:45:06 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:45:06 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:45:06 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:45:28 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.6ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.4ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (24.5ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 87ms (Views: 85.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:45:28 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:45:28 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:45:28 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:45:28 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:45:28 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:45:28 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:46:18 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.5ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.5ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.8ms)
+  Rendered users/index.html.erb within layouts/application (23.6ms)
+  Rendered layouts/_navbar.html.erb (0.2ms)
+Completed 200 OK in 70ms (Views: 68.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:46:18 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:46:18 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:46:18 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:46:18 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:46:18 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:46:18 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:46:53 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.7ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.4ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.8ms)
+  Rendered users/index.html.erb within layouts/application (24.9ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 87ms (Views: 85.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:46:53 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:46:53 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:46:53 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:46:53 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:46:53 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:46:53 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:47:27 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.7ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.4ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (25.9ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 76ms (Views: 74.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:47:27 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:47:27 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:47:27 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:47:27 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:47:27 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:47:27 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:48:21 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.7ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.4ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (24.3ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 74ms (Views: 71.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:48:21 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:48:21 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:48:21 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:48:21 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:48:21 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:48:21 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:48:48 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.4ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (25.2ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:48:48 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:48:48 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:48:48 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:48:48 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:48:48 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:48:48 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:50:33 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.6ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.4ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.8ms)
+  Rendered users/index.html.erb within layouts/application (23.2ms)
+  Rendered layouts/_navbar.html.erb (0.2ms)
+Completed 200 OK in 74ms (Views: 72.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:50:33 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:50:33 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:50:33 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:50:33 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:50:33 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:50:33 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:51:19 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.9ms)
+  Rendered users/_new.html.erb (1.1ms)
+  Rendered users/index.html.erb within layouts/application (26.2ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 74ms (Views: 71.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:51:19 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:51:19 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:51:19 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:51:19 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:51:19 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:51:19 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:51:36 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.9ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.4ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (25.2ms)
+  Rendered layouts/_navbar.html.erb (0.4ms)
+Completed 200 OK in 31ms (Views: 28.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:51:36 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:51:36 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:51:36 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:51:36 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:51:36 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:51:36 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 16:51:40 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.4ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.8ms)
+  Rendered users/index.html.erb within layouts/application (23.2ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 61ms (Views: 59.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 16:51:40 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:51:40 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 16:51:40 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 16:51:40 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 16:51:40 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 16:51:40 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 17:03:01 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.6ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.4ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (25.6ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 31ms (Views: 28.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 17:03:01 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 17:03:01 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 17:03:01 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:03:01 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:03:01 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 17:03:01 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 17:05:42 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.9ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.4ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (23.9ms)
+  Rendered layouts/_navbar.html.erb (0.2ms)
+Completed 200 OK in 28ms (Views: 25.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 17:05:43 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 17:05:43 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 17:05:43 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:05:43 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 17:05:43 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:05:43 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 17:10:39 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (1.1ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.4ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.8ms)
+  Rendered users/index.html.erb within layouts/application (25.1ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 81ms (Views: 78.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:10:39 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 17:10:39 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:10:39 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 17:10:39 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 17:10:40 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 17:10:40 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 17:12:02 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (25.1ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 92ms (Views: 89.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 17:12:02 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 17:12:02 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 17:12:02 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:12:02 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:12:02 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 17:12:02 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 17:12:14 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.6ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.4ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.6ms)
+  Rendered users/index.html.erb within layouts/application (22.6ms)
+  Rendered layouts/_navbar.html.erb (0.2ms)
+Completed 200 OK in 70ms (Views: 68.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 17:12:15 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:12:15 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 17:12:15 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:12:15 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 17:12:15 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 17:12:15 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 17:13:07 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.7ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.7ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.6ms)
+  Rendered users/index.html.erb within layouts/application (24.6ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 90ms (Views: 87.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 17:13:07 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 17:13:07 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:13:07 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 17:13:07 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:13:07 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 17:13:07 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 17:13:32 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.7ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.4ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.5ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (25.0ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 77ms (Views: 74.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:13:32 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 17:13:32 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 17:13:32 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:13:32 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 17:13:32 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 17:13:32 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 17:13:52 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.7ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.4ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (24.9ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 77ms (Views: 74.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 17:13:52 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 17:13:52 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 17:13:52 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:13:52 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 17:13:52 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:13:52 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 17:14:33 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.7ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTrack Load (0.6ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.8ms)
+  Rendered users/index.html.erb within layouts/application (28.4ms)
+  Rendered layouts/_navbar.html.erb (0.2ms)
+Completed 200 OK in 46ms (Views: 43.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 17:14:33 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:14:33 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 17:14:33 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 17:14:33 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 17:14:33 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:14:33 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 17:14:58 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.7ms)[0m  SELECT "tracks".* FROM "tracks"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1  [["user_id", 1]]
+  Rendered sessions/_login.html.erb (0.6ms)
+  Rendered users/_new.html.erb (0.7ms)
+  Rendered users/index.html.erb within layouts/application (25.1ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 43ms (Views: 41.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 17:14:58 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 17:14:58 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:14:58 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 17:14:58 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 17:14:59 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 17:14:59 -0600

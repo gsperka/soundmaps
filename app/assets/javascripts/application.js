@@ -44,10 +44,23 @@ $(document).ready(function() {
     $("#overlay").hide();
   })
 
-  $('#toggle_markers').click(function(e) {
-    for(var i = 0; i < markers.length; i++) {
-      if(markers[i].getVisible() == true) markers[i].setVisible(false);
-      else markers[i].setVisible(true);
+  $('#toggle_markers').click(function() {
+    if(markers[1].getVisible() == true) {
+      for(var i = 0; i < markers.length; i++) markers[i].setVisible(false);
+    }
+    else {
+      for(var i = 0; i < markers.length; i++) markers[i].setVisible(true);
+    }
+  })
+
+  $('#toggle_user_markers').click(function() {
+    for(var i = 0; i < markers.length; i++) markers[i].setVisible(false);
+
+    if(user_markers[1].getVisible() == true) {
+      for(var i = 0; i < markers.length; i++) user_markers[i].setVisible(false);
+    }
+    else {
+      for(var i = 0; i < markers.length; i++) user_markers[i].setVisible(true);
     }
   })
 
