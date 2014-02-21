@@ -1,26 +1,42 @@
-Soundmaps
+Soundmap
 =========
 
-Application that allows you to upload and sample soundbytes from across the globe.
+This is a rails app that allows you to upload and listen to sounds from across the globe.
 
 Getting Started
 ===============
 
-Run the following commands from the root directory after you have cloned the repo.
 
-1) bundle
 
-2) rake db:create
+1) Requirements: postgresql, Amazon S3 API keys in .env file (see below)
 
-3) rake db:migrate
+2) Run the following commands from the root directory after you have cloned the repo.
 
-4) rake db:seed
+```
+bundle
 
-Start a local server on your machine by using the following command.
+rake db:create
 
-1) rails server
+rake db:migrate
 
-Open browser and enter the URL 'localhost:3000' to view SoundMap. Using the URL http://0.0.0.0:3000 will result in a invalid Google Maps API key.
+rake db:seed
+```
+
+3) Create file '.env' in app root directory and add your Amazon S3 API keys with the following syntax:
+
+```
+S3_BUCKET_NAME= your bucket name
+AWS_ACCESS_KEY_ID= your access key
+AWS_SECRET_ACCESS_KEY= your secret access key
+```
+
+4) Run the rails server:
+
+```
+rails server
+```
+
+5) Then go to 'localhost:3000' in your browser to view SoundMap.
 
 Group Members:
 ==============
@@ -40,8 +56,4 @@ https://github.com/bkeepers/dotenv
 
 
 *********
-Add a .env file to your root directory and add your s3 keys like so,
 
-S3_BUCKET_NAME= your bucket name
-AWS_ACCESS_KEY_ID= your access key
-AWS_SECRET_ACCESS_KEY= your secret access key

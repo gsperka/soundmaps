@@ -21,12 +21,16 @@ $(document).ready(function() {
   $('#login_modal').hide();
   $('#signup_modal').hide();
   $("#overlay").hide();
+  $("#audio_modal").hide();
 
   $('#login_modal').css({'margin-left': '-' + (($('#login_modal').width() / 2) + parseInt($("#login_modal").css('padding-left'))) + 'px'});
   $('#login_modal').css({'margin-top': '-' + ($('#login_modal').width() / 2) + 'px'});
 
   $('#signup_modal').css({'margin-left': '-' + (($('#signup_modal').width() / 2) + parseInt($("#signup_modal").css('padding-left'))) + 'px'});
   $('#signup_modal').css({'margin-top': '-' + ($('#signup_modal').width() / 2) + 'px'});
+
+  $('#audio_modal').css({'margin-left': '-' + (($('#audio_modal').width() / 2) + parseInt($("#audio_modal").css('padding-left'))) + 'px'});
+  $('#audio_modal').css({'margin-top': '-' + ($('#audio_modal').width() / 2) + 'px'});
 
   $('#signin').click(function(){
       $('#login_modal').show();
@@ -38,10 +42,17 @@ $(document).ready(function() {
       $("#overlay").show();
   });
 
+  $('#map-canvas').on('click', '.audio_link', function(){
+      $("#audio_modal").show();
+      $("#overlay").show();
+  });
+
   $("#overlay, #nav").click(function(){
     $('#login_modal').hide();
     $('#signup_modal').hide();
+    $('#audio_modal').hide();
     $("#overlay").hide();
+<<<<<<< HEAD
   })
 
   $('#toggle_markers').click(function() {
@@ -63,6 +74,9 @@ $(document).ready(function() {
       for(var i = 0; i < markers.length; i++) user_markers[i].setVisible(true);
     }
   })
+=======
+  });
+>>>>>>> master
 
   function initialize() {
     geocoder = new google.maps.Geocoder();
@@ -111,7 +125,7 @@ $(document).ready(function() {
         });
         var infoWindow = new google.maps.InfoWindow();
         google.maps.event.addListener(marker, "click", function() {
-          infoWindow.setContent('<a href="/tracks/new">Create New Track</a>');
+          infoWindow.setContent("<button href='#' class='audio_link'>Create New Track</button>");
           infoWindow.setPosition(results[0].geometry.location);
           infoWindow.open(map);
         });
