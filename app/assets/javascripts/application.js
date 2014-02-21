@@ -1,6 +1,6 @@
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 $(document).ready(function() {
@@ -68,3 +68,5 @@ $(document).ready(function() {
   }
   google.maps.event.addDomListener(window, 'load', initialize);
 })
+
+//= require turbolinks
