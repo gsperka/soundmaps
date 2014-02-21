@@ -31,7 +31,7 @@
 </div>
 
 <div id="audio_modal">
-  <%= form_for :track do |f| %>
+  <%= form_for(:track, url: '/tracks') do |f| %>
     <p><%= f.text_field :title, placeholder: 'Title' %></p>
     <p><%= f.text_field :description, placeholder: 'Description'  %></p>
     <p><%= f.file_field :clip %></p>
