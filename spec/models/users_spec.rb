@@ -3,20 +3,14 @@ require 'spec_helper'
 feature "user browsing the website" do
   context "on homepage" do
     it "can visit home page" do
-      visit users_path
-      page.should have_content("Welcome to SoundMap")
+      visit root_path
+      expect(page).to have_content("SoundMap")
     end
 
     it "can click link to signup page" do
-      visit users_path
-      click_link('signup')
-      page.should have_content("Signup")
-    end
-
-    it "can click link to signin page" do
-      visit users_path
-      click_link('signin')
-      page.should have_content("signin")
+      visit root_path
+      click_link "Sign Up"
+      expect(page).to have_content("Please Sign Up")
     end
   end
 end
