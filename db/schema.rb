@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 20140220152828) do
     t.integer  "user_id"
     t.integer  "longitude"
     t.integer  "latitude"
-    t.string   "path"
+    t.string   "title"
+    t.text     "description"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
