@@ -11,6 +11,32 @@ $(document).ready(function() {
     event.preventDefault();
     address = $('#geocoder input[name = location]').val();
     codeAddress();
+  });
+
+  $('#login_modal').hide();
+  $('#signup_modal').hide();
+  $("#overlay").hide();
+
+  $('#login_modal').css({'margin-left': '-' + (($('#login_modal').width() / 2) + parseInt($("#login_modal").css('padding-left'))) + 'px'}); 
+  $('#login_modal').css({'margin-top': '-' + ($('#login_modal').width() / 2) + 'px'});
+
+  $('#signup_modal').css({'margin-left': '-' + (($('#signup_modal').width() / 2) + parseInt($("#signup_modal").css('padding-left'))) + 'px'});
+  $('#signup_modal').css({'margin-top': '-' + ($('#signup_modal').width() / 2) + 'px'});
+
+  $('#signin').click(function(){
+      $('#login_modal').show();
+      $("#overlay").show();
+  });
+
+  $('#signup').click(function(){
+      $('#signup_modal').show();
+      $("#overlay").show();
+  });
+
+  $("#overlay, #nav").click(function(){
+    $('#login_modal').hide();
+    $('#signup_modal').hide();
+    $("#overlay").hide(); 
   })
 
   function initialize() {
