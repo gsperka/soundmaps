@@ -25,6 +25,13 @@ h1 {
   text-decoration: none;
 }
 
+nav {
+  z-index: 100;
+  position: fixed;
+  right: 0;
+  left: 0;
+}
+
 .nav-links li {
   display:inline;
   padding: 0 15px;
@@ -38,7 +45,7 @@ h1 {
   text-decoration: none;
 }
 
-#sign, #logout, #profile_link{
+#signin, #signup, #logout, #profile_link{
   float: right;
   padding-right: 30px;
   padding-left: 30px;
@@ -83,8 +90,11 @@ display: inline;
 }
 
 #map-canvas { 
-  height: 100%; 
-  width: 100% 
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: fixed !important;
 }
 
 #geocode_bar {
@@ -97,6 +107,28 @@ display: inline;
   text-align: center;
 }
 
+/* MODALS */
+
+#overlay {
+  z-index: 39;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,.7);
+}
+
+#login_modal, #signup_modal {
+  z-index: 40;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background: #fff;
+  padding: 30px 100px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
 
 /* FOOTER */
 
