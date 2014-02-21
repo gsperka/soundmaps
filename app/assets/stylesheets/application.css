@@ -32,12 +32,14 @@ h1 {
   text-decoration: none;
 }
 
-#sign{
+#sign, #logout{
   float: right;
   padding-right: 30px;
   padding-left: 30px;
   font-family: 'Averia Libre', cursive;
+  margin-top: 25px;
 }
+
 
 .nav-links ul {
   background-color: #33CC33;
