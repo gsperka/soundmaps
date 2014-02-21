@@ -32,7 +32,7 @@ h1 {
   text-decoration: none;
 }
 
-#sign, #logout{
+#sign, #logout, #profile_link{
   float: right;
   padding-right: 30px;
   padding-left: 30px;
