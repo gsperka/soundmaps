@@ -7984,3 +7984,267 @@ Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-20 20:17:28 
   Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
   Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (25.3ms)
 >>>>>>> master
+  [1m[36m (18.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140220152811)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying(255), "email" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (16.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140220152811"]]
+  [1m[36m (15.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTracks (20140220152828)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "tracks" ("id" serial primary key, "user_id" integer, "longitude" integer, "latitude" integer, "title" character varying(255), "description" text, "url" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140220152828"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (27.8ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Aliquid vitae qui aliquam et."], ["latitude", -67], ["longitude", -29], ["title", "optio"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://ryanlockman.net/raoul_barrows"], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Velit molestiae quaerat tenetur."], ["latitude", -38], ["longitude", -46], ["title", "qui"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://tillman.org/marta"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "A inventore quibusdam sequi debitis eveniet occaecati quae minus."], ["latitude", -22], ["longitude", -152], ["title", "reiciendis"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://greenfelderjones.biz/norris_oconner"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Tempora recusandae vitae sit."], ["latitude", -47], ["longitude", -6], ["title", "quo"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://harvey.net/jenifer.adams"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Temporibus iusto odio quia."], ["latitude", 59], ["longitude", -71], ["title", "rem"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://raynor.org/bernadette.herman"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Perferendis asperiores sapiente consequatur quia iste explicabo."], ["latitude", -77], ["longitude", -101], ["title", "dolores"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://walkernienow.com/coby_hodkiewicz"], ["user_id", 1]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Quis et aut et."], ["latitude", 71], ["longitude", 44], ["title", "doloribus"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://spencer.biz/avery"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Nesciunt voluptas soluta qui a labore omnis ex delectus."], ["latitude", -72], ["longitude", 146], ["title", "enim"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://stracke.biz/lincoln"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Facere maiores necessitatibus odit."], ["latitude", 59], ["longitude", 164], ["title", "enim"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://dachpowlowski.com/amya"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Pariatur deleniti ut eaque est earum est sint."], ["latitude", 7], ["longitude", -106], ["title", "voluptas"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://kerlukepfeffer.net/haley.hilll"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Et vero esse est voluptate corporis velit."], ["latitude", 20], ["longitude", 50], ["title", "a"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://smithamullrich.name/helena_bernhard"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Dolor velit deserunt voluptatem aspernatur voluptate at dicta."], ["latitude", -50], ["longitude", -141], ["title", "est"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://williamson.org/turner"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Iste expedita nemo ut dolorum deleniti et sed."], ["latitude", 34], ["longitude", 172], ["title", "aut"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://osinski.net/karson"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Reiciendis impedit aut natus eaque molestiae consequatur sint."], ["latitude", -18], ["longitude", 142], ["title", "quaerat"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://marvin.biz/rolando_reynolds"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Quia eos et aut sint consequatur."], ["latitude", 11], ["longitude", -157], ["title", "impedit"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://bechtelar.org/samanta"], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Magni hic porro explicabo iure impedit delectus laudantium quia."], ["latitude", 80], ["longitude", -56], ["title", "quos"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://konopelski.net/camryn.kuhlman"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Enim temporibus deserunt quisquam."], ["latitude", 13], ["longitude", 0], ["title", "enim"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://fisher.info/reva"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Eveniet dolorem maxime hic."], ["latitude", -16], ["longitude", 0], ["title", "sint"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://kling.name/gene"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Ea sed hic voluptas dolor qui autem ut."], ["latitude", 47], ["longitude", -116], ["title", "doloribus"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://simonistrantow.org/ramon.ko"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Molestias ad natus voluptatem nihil."], ["latitude", -46], ["longitude", 20], ["title", "illo"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://morar.org/tia"], ["user_id", 1]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Sequi facilis omnis eius sint enim sunt aliquam nam."], ["latitude", -9], ["longitude", 144], ["title", "sed"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://johnsonmann.name/wilmer.rowe"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Ea impedit aut perspiciatis et earum et consequatur aperiam."], ["latitude", -64], ["longitude", -110], ["title", "incidunt"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://powlowskibeahan.com/lincoln.hagenes"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Occaecati minus et ducimus quidem."], ["latitude", 65], ["longitude", -28], ["title", "nisi"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://eichmannreinger.com/palma"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Aut itaque minima et sed aut similique sint."], ["latitude", 56], ["longitude", -69], ["title", "odit"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://donnelly.info/sidney_kutch"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Esse minus vel iste quod iure consequatur."], ["latitude", 88], ["longitude", -89], ["title", "eos"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://pollichstreich.com/tremaine.damore"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Dolores cumque recusandae exercitationem adipisci illo quo."], ["latitude", 58], ["longitude", -125], ["title", "est"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://olsonolson.info/deion_runolfon"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Est autem impedit error voluptate ut."], ["latitude", -14], ["longitude", 40], ["title", "et"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://effertz.biz/vesta_swaniawski"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Voluptatem mollitia nostrum rerum pariatur."], ["latitude", 80], ["longitude", -163], ["title", "eligendi"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://ruelbrown.biz/lottie"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Impedit similique et ipsam quibusdam id et est."], ["latitude", 51], ["longitude", -132], ["title", "molestias"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://mckenzie.net/dock.kreiger"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Eveniet blanditiis mollitia quis."], ["latitude", 15], ["longitude", 148], ["title", "suscipit"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://nienow.info/lucius_kshlerin"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Aut ut ipsam aut qui eum sequi atque."], ["latitude", -53], ["longitude", 146], ["title", "expedita"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://baumbachemmerich.name/kaandra"], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Et aspernatur voluptatem molestiae."], ["latitude", 9], ["longitude", 92], ["title", "aut"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://ward.info/kayleigh"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Cupiditate provident dolorem non rerum in."], ["latitude", -21], ["longitude", 110], ["title", "placeat"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://monahan.biz/viviane"], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Sed adipisci ratione laboriosam."], ["latitude", -49], ["longitude", -31], ["title", "nesciunt"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://rosenbaum.org/chanel_streich"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Qui saepe asperiores sit autem modi ex fuga."], ["latitude", -48], ["longitude", -40], ["title", "fugiat"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://breitenberg.net/jannie"], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Vero corporis eos ea sit voluptatem exercitationem maxime."], ["latitude", 14], ["longitude", 74], ["title", "rem"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://sawayn.info/ramiro"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Et aspernatur ut aut facere et qui illum perspiciatis."], ["latitude", -44], ["longitude", 18], ["title", "et"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://kulasflatley.name/adelle_maggio"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Enim quo nemo impedit similique eum."], ["latitude", -77], ["longitude", 122], ["title", "reprehenderit"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://johnson.com/odell_predovic"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Est aliquam rem aperiam."], ["latitude", 6], ["longitude", 92], ["title", "omnis"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://blick.biz/norris"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Unde nemo est nihil nulla animi impedit."], ["latitude", 48], ["longitude", -88], ["title", "neque"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://boylebrakus.biz/curtis_terry"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Aperiam quae molestiae iure cum est rerum repellat placeat."], ["latitude", -53], ["longitude", 98], ["title", "cum"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://mueller.net/makenna"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Quis consectetur voluptas vitae."], ["latitude", 24], ["longitude", 34], ["title", "adipisci"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://simonis.name/franz"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Necessitatibus vitae esse voluptas aut est quo minus provident."], ["latitude", 85], ["longitude", 112], ["title", "facere"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://roob.org/justice"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Alias aut cupiditate quaerat culpa nostrum quae dolores dolorem."], ["latitude", 57], ["longitude", 156], ["title", "consequuntur"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://shields.name/jarvis"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Laudantium itaque vero hic eligendi rerum accusantium enim rerum."], ["latitude", 86], ["longitude", 33], ["title", "repellat"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://huels.biz/tyrel"], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Et aut accusamus a mollitia sunt aut vel et."], ["latitude", 53], ["longitude", -56], ["title", "facilis"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://grantturcotte.com/webster"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "At assumenda reiciendis ad nam quasi aut quia."], ["latitude", -55], ["longitude", -133], ["title", "doloremque"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://langworth.com/alena"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Quia repudiandae aspernatur vel."], ["latitude", -34], ["longitude", 34], ["title", "enim"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://lindgren.name/rod"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Aut qui voluptatem cum nisi quia."], ["latitude", -13], ["longitude", -99], ["title", "qui"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://champlin.com/bryana"], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["description", "Placeat autem hic iusto doloremque necessitatibus."], ["latitude", 74], ["longitude", 127], ["title", "optio"], ["updated_at", Fri, 21 Feb 2014 16:31:02 UTC +00:00], ["url", "http://ward.info/kenneth.hammes"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 10:34:07 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.7ms)[0m  SELECT "tracks".* FROM "tracks"
+  Rendered users/index.html.erb within layouts/application (40.2ms)
+Completed 200 OK in 832ms (Views: 806.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 10:34:09 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 10:34:09 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 10:34:09 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 10:34:09 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 10:34:09 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 10:34:19 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.8ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  Rendered users/index.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 10:34:19 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 10:34:19 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 10:34:19 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 10:34:19 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 10:34:19 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 10:37:54 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks"
+  Rendered users/index.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 10:39:50 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (1.0ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  Rendered users/index.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 10:39:50 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 10:39:50 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 10:39:50 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 10:39:50 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 10:39:50 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 10:40:09 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.8ms)[0m  SELECT "tracks".* FROM "tracks"
+  Rendered users/index.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 10:40:09 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 10:40:09 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 10:40:09 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 10:40:09 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 10:40:09 -0600
