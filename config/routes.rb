@@ -1,6 +1,6 @@
 Project::Application.routes.draw do
    resources :users
-
+   resources :tracks
 
 root to: 'users#index'
 

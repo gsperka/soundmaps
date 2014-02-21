@@ -27,6 +27,12 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Make uploading files real easy
+gem 'paperclip'
+gem 'aws-sdk'
+
+gem 'dotenv-rails'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -45,6 +51,7 @@ gem 'faker'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'jquery-turbolinks'
 
 # Use unicorn as the app server
 # gem 'unicorn'
