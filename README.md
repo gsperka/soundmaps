@@ -22,13 +22,13 @@ rake db:migrate
 rake db:seed
 ```
 
-Run the rails server:
+3) Run the rails server:
 
 ```
 rails server
 ```
 
-Then go to 'localhost:3000' in your browser to view SoundMap.
+4) Then go to 'localhost:3000' in your browser to view SoundMap.
 
 Group Members:
 ==============
