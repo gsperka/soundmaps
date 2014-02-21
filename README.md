@@ -6,15 +6,21 @@ Application that allows you to upload and sample soundbytes from across the glob
 Getting Started
 ===============
 
-Run the following commands from the root directory after you have cloned the repo.
 
-1) bundle
 
-2) rake db:create
+1) Requirements: postgresql
 
-3) rake db:migrate
+)2 Run the following commands from the root directory after you have cloned the repo.
 
-4) rake db:seed
+```
+bundle
+
+rake db:create
+
+rake db:migrate
+
+rake db:seed
+```
 
 Start a local server on your machine by using the following command.
 
