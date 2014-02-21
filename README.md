@@ -8,7 +8,7 @@ Getting Started
 
 
 
-1) Requirements: postgresql
+1) Requirements: postgresql, Amazon S3 API keys in .env file (see below)
 
 2) Run the following commands from the root directory after you have cloned the repo.
 
@@ -22,11 +22,13 @@ rake db:migrate
 rake db:seed
 ```
 
-Start a local server on your machine by using the following command.
+Run the rails server:
 
-1) rails server
+```
+rails server
+```
 
-Open browser and enter the URL 'localhost:3000' to view SoundMap.
+Then go to 'localhost:3000' in your browser to view SoundMap.
 
 Group Members:
 ==============
