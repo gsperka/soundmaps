@@ -1,7 +1,7 @@
 Soundmap
 =========
 
-Application that allows you to upload and listen to sounds from across the globe.
+This is a rails app that allows you to upload and listen to sounds from across the globe.
 
 Getting Started
 ===============
