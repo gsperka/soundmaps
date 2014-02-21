@@ -173,8 +173,8 @@ DEPENDENCIES
   faker
   jbuilder (~> 1.2)
   jquery-rails
-  paperclip
   jquery-turbolinks
+  paperclip
   pg
   rails (= 4.0.2)
   rspec-rails (~> 3.0.0.beta)
