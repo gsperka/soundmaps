@@ -1,54 +1,69 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
-//
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 
-function initialize() {
-  var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-  var mapOptions = {
-    zoom: 4,
-    center: myLatlng
-  };
+$(document).ready(function() {
+  var geocoder;
+  var address;
 
-  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  $('#geocoder').submit(function(event) {
+    event.preventDefault();
+    address = $('#geocoder input[name = location]').val();
+    codeAddress();
+  })
 
-  var contentString = '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-      '<div id="bodyContent">'+
-      '<p></p>'+
-      '<p>Link<%= link_to @track track_path %>'+
-      '(last visited June 22, 2009).</p>'+
-      '</div>'+
-      '</div>';
+  function initialize() {
+    geocoder = new google.maps.Geocoder();
+    var mapOptions = {
+      center: new google.maps.LatLng(0 , 0),
+      zoom: 3
+    };
 
-  var infowindow = new google.maps.InfoWindow({
-      content: contentString
-  });
+    map = new google.maps.Map(document.getElementById("map-canvas"),
+        mapOptions);
 
-  var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: 'Uluru (Ayers Rock)'
-  });
+    function createMarker(point,map, html) {
+      var marker = new google.maps.Marker({position: point, map: map});
 
-  google.maps.event.addListener(marker, 'click', function() {
-    if (infowindow) infowindow.close();
-    infowindow.open(map,marker);
-  });
-}
+      var infoWindow = new google.maps.InfoWindow();
+      google.maps.event.addListener(marker, "click", function() {
+        infoWindow.setContent(html);
+        infoWindow.setPosition(point);
+        infoWindow.open(map);
+      });
+      return marker;
+    }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+    for(var i = 0; i < tracks.length; i++) {
+      var point = new google.maps.LatLng(tracks[i].latitude , tracks[i].longitude);
+      var marker = new createMarker(point, map, '<a href="' + tracks[i].url + '">' + tracks[i].title + '</a><br>' + tracks[i].description)
+      marker.setMap(map)
+    }
+  }
+
+  function codeAddress() {
+    console.log(geocoder)
+    // var address = document.getElementById('address').value;
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      console.log(status)
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+        var infoWindow = new google.maps.InfoWindow();
+        google.maps.event.addListener(marker, "click", function() {
+          infoWindow.setContent('<a href="/tracks/new">Create New Track</a>');
+          infoWindow.setPosition(results[0].geometry.location);
+          infoWindow.open(map);
+        });
+      return marker;
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+})
