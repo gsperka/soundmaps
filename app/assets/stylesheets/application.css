@@ -45,12 +45,23 @@ nav {
   text-decoration: none;
 }
 
-#signin, #signup, #logout, #profile_link{
+#signin, #signup, #logout {
   float: right;
   padding-right: 30px;
   padding-left: 30px;
   font-family: 'Averia Libre', cursive;
   margin-top: 16px;
+}
+
+#profile_link{
+  float: right;
+  padding-right: 30px;
+  padding-left: 30px;
+  font-family: 'Averia Libre', cursive;
+  margin-top: 16px;
+  color: white;
+  font-size: 26px;
+
 }
 
 
