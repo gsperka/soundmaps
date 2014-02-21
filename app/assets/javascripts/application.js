@@ -52,7 +52,7 @@ $(document).ready(function() {
     $('#signup_modal').hide();
     $('#audio_modal').hide();
     $("#overlay").hide();
-<<<<<<< HEAD
+
   })
 
   $('#toggle_markers').click(function() {
@@ -74,9 +74,7 @@ $(document).ready(function() {
       for(var i = 0; i < markers.length; i++) user_markers[i].setVisible(true);
     }
   })
-=======
-  });
->>>>>>> master
+
 
   function initialize() {
     geocoder = new google.maps.Geocoder();
