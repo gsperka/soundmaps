@@ -40,6 +40,9 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
 end
+
+gem 'faker'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2'
 

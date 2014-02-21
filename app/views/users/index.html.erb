@@ -1,6 +1,13 @@
-<div id="login">
+<%= javascript_tag do %>
+  window.tracks = <%=raw Track.all.to_json %>
+<% end %>
 
+<div id="map-canvas"></div>
 
+<form id='geocoder'>
+  <input id='address' type='textbox' name='location' value='Chicago, IL'>
+  <input type='submit' value='Geocode'>
+</form>
 
 
   <div id='song'>
@@ -9,5 +16,3 @@
     </audio>
   </div>
 
-
-</div>

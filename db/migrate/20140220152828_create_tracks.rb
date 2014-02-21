@@ -4,7 +4,9 @@ class CreateTracks < ActiveRecord::Migration
       t.integer :user_id
       t.integer :longitude
       t.integer :latitude
-      t.string :path
+      t.string :title
+      t.text :description
+      t.string :url
       t.timestamps
     end
   end
