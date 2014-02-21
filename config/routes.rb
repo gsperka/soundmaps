@@ -7,6 +7,7 @@ root to: 'users#index'
 get '/login' => 'sessions#login'
 post '/login' => 'sessions#create'
 get '/signup' => 'users#new'
+get '/logout' => 'sessions#logout'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
