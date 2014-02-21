@@ -1,0 +1,12 @@
+<nav class="nav-links">
+  <ul>
+    <li><%= link_to "SoundMap", root_path, :id => 'logo' %></li>
+    <% if session[:current_user_id] %>
+      <li id="logout"><%= link_to "Sign Out", logout_path %></li>
+      <li id="profile_link"><%= link_to "My Profile", user_path(session[:current_user_id])%></li>
+    <%else%>
+      <li><a href="#" id="signup">Sign Up</a></li>
+      <li><a href="#" id="signin">Sign In</a></li>
+    <%end%>
+  </ul>
+</nav>
