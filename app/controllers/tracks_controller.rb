@@ -6,7 +6,7 @@ class TracksController < ActionController::Base
 
 		if @track.save
 			puts 'ASDLFKAJ$RLFIJF$'
-			# redirect_to @track
+			 redirect_to root_path
 		else
 			puts 'failfailfailfail'
 			# render 'new'
