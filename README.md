@@ -10,7 +10,7 @@ Getting Started
 
 1) Requirements: postgresql
 
-)2 Run the following commands from the root directory after you have cloned the repo.
+2) Run the following commands from the root directory after you have cloned the repo.
 
 ```
 bundle
