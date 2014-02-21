@@ -8455,3 +8455,407 @@ Migrating to AddAttatchmentFieldToTracks (20140221173258)
   [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140221173258"]]
   [1m[35m (10.5ms)[0m  COMMIT
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 11:43:06 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.6ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 11:43:06 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.2ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 11:45:03 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test", "description"=>"testtesttest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fac42a65838 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-1461-a5e7ko>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Completed 500 Internal Server Error in 35ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: clip):
+  app/controllers/tracks_controller.rb:6:in `create'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.5ms)
+  [1m[36mTrack Load (2.4ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 11:48:14 -0600
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.7ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  Rendered users/index.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 29ms (Views: 26.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 11:48:15 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 11:48:15 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 11:48:15 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 11:48:15 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 11:48:15 -0600
+  [1m[35mTrack Load (1.1ms)[0m  SELECT "tracks".* FROM "tracks" ORDER BY "tracks"."id" DESC LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "tracks"[0m
+  [1m[35mTrack Load (0.5ms)[0m  SELECT "tracks".* FROM "tracks"
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 11:48:51 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.4ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 11:52:12 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test", "description"=>"testtesttest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fac42913890 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-1461-7a8lsv>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Completed 500 Internal Server Error in 1ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: clip):
+  app/controllers/tracks_controller.rb:6:in `create'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.9ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 11:54:06 -0600
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.1ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 11:54:19 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test", "description"=>"testtesttest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fac42aa52d0 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-1461-h9m3ls>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Completed 500 Internal Server Error in 12ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: clip):
+  app/controllers/tracks_controller.rb:6:in `create'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.9ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 11:58:35 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.7ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 11:58:45 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test", "description"=>"testtest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fac4109dba8 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-1461-hx91dw>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `has_attached_file' for #<Class:0x007fac4110e5d8>):
+  app/models/track.rb:3:in `<class:Track>'
+  app/models/track.rb:1:in `<top (required)>'
+  app/controllers/tracks_controller.rb:6:in `create'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 12:02:25 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.7ms)[0m  SELECT "tracks".* FROM "tracks"
+  Rendered users/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 319ms (Views: 304.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 12:02:25 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 12:02:25 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 12:02:25 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 12:02:25 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 12:02:25 -0600
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:02:28 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.9ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:02:54 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test", "description"=>"testtest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac460fd90 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-1xec2dt>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Completed 500 Internal Server Error in 11ms
+
+Paperclip::Errors::MissingRequiredValidatorError (Paperclip::Errors::MissingRequiredValidatorError):
+  app/controllers/tracks_controller.rb:6:in `create'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.1ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:09:28 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.6ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:09:38 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test", "description"=>"test testtest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac3917d68 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-kqulk4>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/a34972fc9153914cc6652e4f8757fcf320140221-3041-1dn30z0'
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/f0936074bf143df524ce65545356721320140221-3041-1hbwmjv'
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  Rendered tracks/new.html.erb (1.7ms)
+Completed 200 OK in 123ms (Views: 3.9ms | ActiveRecord: 2.6ms)
+  [1m[36mTrack Load (1.4ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:13:28 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.7ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:13:44 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"blah", "description"=>"blah", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac46ee748 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-55bhhi>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/d0de956ecba6fdfe7732d0cae71c0af020140221-3041-6jcykd'
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/cfefa56c386c58fe3c9fb6e5c6b2b4b120140221-3041-1isjw1p'
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  Rendered tracks/new.html.erb (1.3ms)
+Completed 200 OK in 77ms (Views: 3.3ms | ActiveRecord: 2.2ms)
+  [1m[36mTrack Load (1.3ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:14:52 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.7ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:15:45 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.3ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:15:57 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test", "description"=>"testtesttest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac3a8e2a0 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-1x6f956>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/13c584a63f4208f5d0f227a489e87c1120140221-3041-1qvcqk5'
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/900f16c1848cfe568bc864c6c3ad3d6620140221-3041-n3lidc'
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  Rendered tracks/new.html.erb (1.2ms)
+Completed 200 OK in 68ms (Views: 3.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:16:46 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.7ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:16:55 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"blah", "description"=>"testtestest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac3c1e570 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-r2nt2l>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/8f156246624a3f13052256eced0f29e120140221-3041-1l4fdex'
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/64e65c86aef8323d53069268e8325f8d20140221-3041-13kp1dz'
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  Rendered tracks/new.html.erb (1.5ms)
+Completed 200 OK in 96ms (Views: 3.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:19:28 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.0ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:20:16 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"sdafa", "description"=>"adsfdas", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac455c150 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-1kts6hn>, @original_filename="01 Cameras.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"01 Cameras.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/0b12facf74837eb8b578fdad6ccb518020140221-3041-j4dnxz'
+[paperclip] Content Type Spoof: Filename 01_Cameras.mp3 (["audio/mpeg"]), content type discovered from file command: application/octet-stream. See documentation to allow this combination.
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/7d8df825119dd570625d675e64b40b0020140221-3041-5nqgo6'
+[paperclip] Content Type Spoof: Filename 01_Cameras.mp3 (["audio/mpeg"]), content type discovered from file command: application/octet-stream. See documentation to allow this combination.
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  Rendered tracks/new.html.erb (2.2ms)
+Completed 200 OK in 42ms (Views: 4.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:23:51 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.8ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:24:40 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"blah", "description"=>"testtesttest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac715e118 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-16siqu0>, @original_filename="04 Folk Lore.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"04 Folk Lore.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/67e427488904dda35bf77a6c5a5874f120140221-3041-1nno8v4'
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/130d93cf622d912792c82d16deaa833920140221-3041-jiqazi'
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  Rendered tracks/new.html.erb (1.1ms)
+Completed 200 OK in 55ms (Views: 2.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:26:02 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.7ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:26:16 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"te", "description"=>"testtest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac3a3f448 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-isstbj>, @original_filename="04 Folk Lore.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"04 Folk Lore.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/021570a62ab05cceb87a5789db2d6f1020140221-3041-7qudxp'
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/65c958e8790cd9da3b9ae37e639f449920140221-3041-1r8v81l'
+  [1m[35mSQL (4.4ms)[0m  INSERT INTO "tracks" ("clip_content_type", "clip_file_name", "clip_file_size", "clip_updated_at", "created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["clip_content_type", "audio/mp3"], ["clip_file_name", "04_Folk_Lore.mp3"], ["clip_file_size", 2989513], ["clip_updated_at", Fri, 21 Feb 2014 18:26:16 UTC +00:00], ["created_at", Fri, 21 Feb 2014 18:26:16 UTC +00:00], ["description", "testtest"], ["title", "te"], ["updated_at", Fri, 21 Feb 2014 18:26:16 UTC +00:00]]
+[paperclip] saving /tracks/clips/000/000/051/original/04_Folk_Lore.mp3
+[AWS S3 200 1.608818 0 retries] put_object(:acl=>:public_read,:bucket_name=>"soundmap",:content_length=>2989513,:content_type=>"audio/mp3",:data=>Paperclip::UploadedFileAdapter: 04 Folk Lore.mp3,:key=>"tracks/clips/000/000/051/original/04_Folk_Lore.mp3")  
+
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/tracks/51
+Completed 302 Found in 2250ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/tracks/51" for 127.0.0.1 at 2014-02-21 12:26:18 -0600
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"51"}
+Completed 500 Internal Server Error in 1ms
+
+ActionView::MissingTemplate (Missing template tracks/show with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/justinpark/Desktop/DBC/phase_3/soundmaps/app/views"
+):
+  actionpack (4.0.2) lib/action_view/path_set.rb:46:in `find'
+  actionpack (4.0.2) lib/action_view/lookup_context.rb:122:in `find'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:393:in `_run__1784224910503499938__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__3831541010119877518__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.5ms)
+  [1m[36mTrack Load (1.3ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[36mTrack Load (2.2ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks" ORDER BY "tracks"."id" ASC LIMIT 1

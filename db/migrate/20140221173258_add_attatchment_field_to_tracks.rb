@@ -7,3 +7,4 @@ class AddAttatchmentFieldToTracks < ActiveRecord::Migration
   	remove_attachment :tracks, :clip
   end
 end
+	
