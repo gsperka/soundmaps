@@ -7,7 +7,6 @@
 $(document).ready(function() {
   var geocoder,
       address;
-
   $('#geocoder').submit(function(event) {
     event.preventDefault();
     address = $('#geocoder input[name = location]').val();
@@ -71,16 +70,11 @@ $(document).ready(function() {
       var point = new google.maps.LatLng(tracks[i].latitude , tracks[i].longitude);
       var marker = new createMarker(point, map, "<button href='#' data-link='"+tracks[i].url+"' class='play'>Play</button><br><p>"+tracks[i].title+"</p><br><p>"+tracks[i].description+"</p>");
       marker.setMap(map);
-
     }
-
-
   }
 
   function codeAddress() {
-    console.log(geocoder);
     geocoder.geocode( { 'address': address}, function(results, status) {
-      console.log(status);
       if (status == google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
         map.setZoom(13);
