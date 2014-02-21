@@ -22,13 +22,21 @@ rake db:migrate
 rake db:seed
 ```
 
-3) Run the rails server:
+3) Create file '.env' in app root directory and add your Amazon S3 API keys with the following syntax:
+
+```
+S3_BUCKET_NAME= your bucket name
+AWS_ACCESS_KEY_ID= your access key
+AWS_SECRET_ACCESS_KEY= your secret access key
+```
+
+4) Run the rails server:
 
 ```
 rails server
 ```
 
-4) Then go to 'localhost:3000' in your browser to view SoundMap.
+5) Then go to 'localhost:3000' in your browser to view SoundMap.
 
 Group Members:
 ==============
@@ -48,8 +56,4 @@ https://github.com/bkeepers/dotenv
 
 
 *********
-Add a .env file to your root directory and add your s3 keys like so,
 
-S3_BUCKET_NAME= your bucket name
-AWS_ACCESS_KEY_ID= your access key
-AWS_SECRET_ACCESS_KEY= your secret access key
