@@ -25,6 +25,13 @@ h1 {
   text-decoration: none;
 }
 
+nav {
+  z-index: 100;
+  position: fixed;
+  right: 0;
+  left: 0;
+}
+
 .nav-links li {
   display:inline;
   padding: 0 15px;
@@ -38,12 +45,12 @@ h1 {
   text-decoration: none;
 }
 
-#sign, #logout, #profile_link{
+#signin, #signup, #logout, #profile_link{
   float: right;
   padding-right: 30px;
   padding-left: 30px;
   font-family: 'Averia Libre', cursive;
-  margin-top: 25px;
+  margin-top: 16px;
 }
 
 
@@ -52,17 +59,11 @@ h1 {
   height:70px;
   margin: 0;
   padding-left: 0;
-  padding-top:20px;
   list-style:none;
 }
 
 a:hover {
   color:#0066FF;
-}
-
-#song {
-  text-align: center;
-
 }
 
 #log {
@@ -74,14 +75,13 @@ a:hover {
 display: inline;
 }
 
-#log form{
-   width: 40%;
-   float: right;
-   margin: 0;
-   margin-top: 25;
-   color:white;
-   font-family: 'Averia Libre', cursive;
-
+#log form {
+  color: #FFFFFF;
+  float: right;
+  font-family: 'Averia Libre',cursive;
+  margin: 0;
+  padding-top: 20px;
+  width: 40%;
 }
 
 #logo{
@@ -90,10 +90,63 @@ display: inline;
 }
 
 #map-canvas { 
-  height: 75%; 
-  width: 100% 
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: fixed !important;
 }
 
 #geocode_bar {
   width: 200px;
 }
+
+/* FORMS */
+#new_user {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* MODALS */
+
+#overlay {
+  z-index: 39;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,.7);
+}
+
+#login_modal, #signup_modal {
+  z-index: 40;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background: #fff;
+  padding: 30px 100px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* FOOTER */
+
+#song {
+  float: left;
+  text-align: center;
+  width: 40%;
+}
+#footer {
+  z-index: 10;
+  position: absolute;
+  height: 40px;
+  bottom: 0;
+  width: 100%;
+}
+#footer > form {
+  float: left;
+  width: 30%;
+  margin-left: 10px;
+}
+

@@ -504,9 +504,9 @@ Processing by UsersController#index as HTML
 Completed 500 Internal Server Error in 36ms
 
 ActionView::Template::Error (undefined local variable or method `login_path' for #<#<Class:0x007fbb3d851768>:0x007fbb3a9224b0>):
-    2: 
+    2:
     3: <%= link_to "signup", new_user_path %>
-    4: 
+    4:
     5: <%= form_for(:session, url: login_path) do |f| %>
     6: <p><%= f.label :username %>
     7:   <%= f.text_field :username %>
@@ -1149,7 +1149,7 @@ Processing by UsersController#index as HTML
 Completed 500 Internal Server Error in 12ms
 
 ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0x007fbb3a61e188>:0x007fbb3d9e0c00>):
-    10: 
+    10:
     11:      <div class="nav-links">
     12:         <ul>
     13:           <% if current_user %>
@@ -1442,7 +1442,7 @@ Function body:           def _app_views_users_index_html_erb__443285352331039936
     ';@output_buffer.append=( f.password_field :password );@output_buffer.safe_append='
   </p>
   ';@output_buffer.append=( f.submit "Log in" );@output_buffer.safe_append='
-';   end 
+';   end
 @output_buffer.safe_append='
 </div>
 ';@output_buffer.to_s
@@ -1562,11 +1562,11 @@ ActionView::Template::Error (/Users/apprentice/Desktop/soundmaps/app/views/users
 /Users/apprentice/Desktop/soundmaps/app/views/users/index.html.erb:20: syntax error, unexpected keyword_ensure, expecting ')'
 /Users/apprentice/Desktop/soundmaps/app/views/users/index.html.erb:22: syntax error, unexpected keyword_end, expecting ')'):
     2: <h1>Welcome to SoundMap</h1>
-    3: 
+    3:
     4:  <!--  <div id="signup">
     5:     # <%= link_to , new_user_path %>
     6:   </div> -->
-    7: 
+    7:
     8:   <%= form_for(:session, url: login_path) do |f| %>
   actionpack (4.0.2) lib/action_view/template.rb:299:in `module_eval'
   actionpack (4.0.2) lib/action_view/template.rb:299:in `compile'
@@ -8692,3 +8692,96 @@ ActionController::RoutingError (No route matches [GET] "/tracks/new"):
   Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
   Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
   Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (21.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 13:15:12 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (1.0ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  Rendered users/index.html.erb within layouts/application (27.4ms)
+Completed 500 Internal Server Error in 166ms
+
+ActionView::Template::Error (couldn't find file 'jquery.turbolinks'
+  (in /Users/apprentice/soundmaps/app/assets/javascripts/application.js:2)):
+    3: <head>
+    4:   <title>Project</title>
+    5:   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    6:   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    7:   <script type="text/javascript"
+    8:     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgR5AK13N6RoESZzQTkayssSuIbwhwayM&sensor=true">
+    9:   </script>
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___674099637211318887_70109685909980'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (15.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 13:16:04 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.8ms)[0m  SELECT "tracks".* FROM "tracks"
+  Rendered users/index.html.erb within layouts/application (29.4ms)
+Completed 500 Internal Server Error in 39ms
+
+ActionView::Template::Error (couldn't find file 'jquery.turbolinks'
+  (in /Users/apprentice/soundmaps/app/assets/javascripts/application.js:2)):
+    3: <head>
+    4:   <title>Project</title>
+    5:   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    6:   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    7:   <script type="text/javascript"
+    8:     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgR5AK13N6RoESZzQTkayssSuIbwhwayM&sensor=true">
+    9:   </script>
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___674099637211318887_70109685909980'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 13:18:34 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (1.0ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  Rendered users/index.html.erb within layouts/application (29.6ms)
+Completed 500 Internal Server Error in 71ms
+
+ActionView::Template::Error (couldn't find file 'jquery.turbolinks'
+  (in /Users/apprentice/soundmaps/app/assets/javascripts/application.js:4)):
+    3: <head>
+    4:   <title>Project</title>
+    5:   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    6:   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    7:   <script type="text/javascript"
+    8:     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgR5AK13N6RoESZzQTkayssSuIbwhwayM&sensor=true">
+    9:   </script>
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___674099637211318887_70109685909980'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 13:19:50 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (1.5ms)[0m  SELECT "tracks".* FROM "tracks"
+  Rendered users/index.html.erb within layouts/application (76.5ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+Completed 200 OK in 226ms (Views: 210.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 13:19:51 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 13:19:51 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 13:19:51 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 13:19:51 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 13:19:51 -0600

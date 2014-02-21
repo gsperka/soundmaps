@@ -1,4 +1,8 @@
 //= require jquery
+//= require jquery.turbolinks
+//= require jquery_ujs
+//= require_tree .
+
 
 $(document).ready(function() {
   var geocoder,
@@ -9,6 +13,34 @@ $(document).ready(function() {
     address = $('#geocoder input[name = location]').val();
     codeAddress();
   });
+
+
+  $('#login_modal').hide();
+  $('#signup_modal').hide();
+  $("#overlay").hide();
+
+  $('#login_modal').css({'margin-left': '-' + (($('#login_modal').width() / 2) + parseInt($("#login_modal").css('padding-left'))) + 'px'});
+  $('#login_modal').css({'margin-top': '-' + ($('#login_modal').width() / 2) + 'px'});
+
+  $('#signup_modal').css({'margin-left': '-' + (($('#signup_modal').width() / 2) + parseInt($("#signup_modal").css('padding-left'))) + 'px'});
+  $('#signup_modal').css({'margin-top': '-' + ($('#signup_modal').width() / 2) + 'px'});
+
+  $('#signin').click(function(){
+      $('#login_modal').show();
+      $("#overlay").show();
+  });
+
+  $('#signup').click(function(){
+      $('#signup_modal').show();
+      $("#overlay").show();
+  });
+
+  $("#overlay, #nav").click(function(){
+    $('#login_modal').hide();
+    $('#signup_modal').hide();
+    $("#overlay").hide();
+  })
+
 
   function initialize() {
     geocoder = new google.maps.Geocoder();
@@ -70,7 +102,6 @@ $(document).ready(function() {
   }
   google.maps.event.addDomListener(window, 'load', initialize);
 
-
   function audioSetup(){
     $(".play").click(function(event){
       $("#player").attr("src", $(event.target).data("link"))
@@ -78,3 +109,6 @@ $(document).ready(function() {
   }
 
 });
+
+//= require turbolinks
+
