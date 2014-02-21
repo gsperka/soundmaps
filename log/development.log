@@ -7984,6 +7984,1034 @@ Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-20 20:17:28 
   Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
   Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (25.3ms)
 >>>>>>> master
+<<<<<<< HEAD
+  [1m[36m (5.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (2.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140220152811)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (14.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying(255), "email" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140220152811"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTracks (20140220152828)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "tracks" ("id" serial primary key, "user_id" integer, "longitude" integer, "latitude" integer, "title" character varying(255), "description" text, "url" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140220152828"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (55.5ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["description", "Ullam qui molestiae facere veniam."], ["latitude", -86], ["longitude", -49], ["title", "ipsum"], ["updated_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["url", "http://bradtke.name/dolly.runolfsdottir"], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["description", "Et corrupti porro temporibus sint reiciendis officia minus."], ["latitude", 79], ["longitude", 48], ["title", "ea"], ["updated_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["url", "http://mckenzieschmitt.name/wilma"], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["description", "Et eos aut qui voluptatem."], ["latitude", -24], ["longitude", 20], ["title", "harum"], ["updated_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["url", "http://ferrycummerata.biz/cleo"], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["description", "Voluptate quis et unde."], ["latitude", -14], ["longitude", 92], ["title", "rerum"], ["updated_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["url", "http://leannonstehr.com/philip"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["description", "Aut esse tenetur dolorum."], ["latitude", -8], ["longitude", 30], ["title", "natus"], ["updated_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["url", "http://fay.net/olen"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["description", "Quae harum deleniti quisquam error corporis et."], ["latitude", 10], ["longitude", -28], ["title", "illum"], ["updated_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["url", "http://schadenwelch.biz/fermin"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["description", "Non omnis et ullam vel dolorum qui nesciunt iure."], ["latitude", 44], ["longitude", 94], ["title", "consectetur"], ["updated_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["url", "http://terry.net/litzy_breitenberg"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["description", "Aut veniam assumenda voluptate fugit sit voluptatem consectetur impedit."], ["latitude", 47], ["longitude", -136], ["title", "aut"], ["updated_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["url", "http://walker.org/cyrus_fritsch"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["description", "Laboriosam blanditiis autem quidem ipsa iste dolor fugiat."], ["latitude", 44], ["longitude", 175], ["title", "aut"], ["updated_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["url", "http://manteschuster.org/ahmed_lesch"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["description", "Fugiat quisquam perspiciatis et sit."], ["latitude", 40], ["longitude", 170], ["title", "et"], ["updated_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["url", "http://veum.biz/rico"], ["user_id", 1]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["description", "Accusamus deleniti quo nesciunt perspiciatis aut id voluptatem."], ["latitude", 31], ["longitude", -96], ["title", "optio"], ["updated_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["url", "http://torp.biz/kaya.parker"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["description", "Molestiae sunt est ea cum architecto qui ratione omnis."], ["latitude", 76], ["longitude", -46], ["title", "beatae"], ["updated_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["url", "http://ortiz.name/daniella_klein"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["description", "Excepturi ut reiciendis quas consectetur quidem."], ["latitude", 56], ["longitude", -119], ["title", "vitae"], ["updated_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["url", "http://lynch.com/garrett"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["description", "Neque ex dolores ea."], ["latitude", 32], ["longitude", -79], ["title", "sit"], ["updated_at", Fri, 21 Feb 2014 16:15:47 UTC +00:00], ["url", "http://sanfordleuschke.name/rachel_bechtelar"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Blanditiis dolor eum non beatae non vero."], ["latitude", -35], ["longitude", -73], ["title", "aut"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://pagac.com/edyth"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "A sunt nesciunt qui rerum pariatur."], ["latitude", 23], ["longitude", -23], ["title", "et"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://wunsch.com/darrell.mraz"], ["user_id", 1]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Vitae ex dolore ea odit sit nostrum."], ["latitude", -58], ["longitude", 12], ["title", "doloremque"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://connelly.org/louvenia.waters"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Eius et magnam rerum."], ["latitude", -75], ["longitude", -80], ["title", "dolore"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://hansen.net/jolie"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Autem id porro omnis."], ["latitude", 66], ["longitude", -145], ["title", "sed"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://hermistonconnelly.info/kay.nienow"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Consectetur id reiciendis et."], ["latitude", -73], ["longitude", -133], ["title", "aut"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://wilderman.org/rickey"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Deserunt quia dolorem animi sed quam."], ["latitude", 14], ["longitude", -116], ["title", "debitis"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://walter.info/joanny"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Culpa officiis consequatur et ea."], ["latitude", 58], ["longitude", 145], ["title", "voluptatem"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://stracke.net/sean_heidenreich"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Distinctio aliquid cum quaerat sit enim labore."], ["latitude", -22], ["longitude", 179], ["title", "voluptate"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://bahringer.net/grant"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Numquam tempora ipsum repellat."], ["latitude", -59], ["longitude", -38], ["title", "ea"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://kunze.info/trystan"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Distinctio maiores dolorum odit voluptates."], ["latitude", -44], ["longitude", -165], ["title", "qui"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://barton.biz/makenzie"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (357.7ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Aspernatur ratione nemo sed."], ["latitude", 22], ["longitude", 22], ["title", "aperiam"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://gleasonhirthe.net/everette.huels"], ["user_id", 1]]
+  [1m[35m (7.4ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Eaque sit praesentium quisquam asperiores voluptas aut nobis ea."], ["latitude", -1], ["longitude", -141], ["title", "totam"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://wunsch.biz/arthur"], ["user_id", 1]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Inventore repudiandae facere ut sapiente quidem."], ["latitude", 22], ["longitude", -125], ["title", "sit"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://crona.name/cedrick_gorczany"], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Omnis praesentium amet corporis eius debitis hic modi."], ["latitude", -29], ["longitude", -47], ["title", "eum"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://harber.info/adrain"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Iure et accusantium ut beatae."], ["latitude", 49], ["longitude", -118], ["title", "eaque"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://kohlercorkery.net/rhianna"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Molestias et eum debitis tenetur."], ["latitude", 13], ["longitude", -126], ["title", "incidunt"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://hahn.net/zola.smitham"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Sapiente facilis accusantium quasi consequatur odio veniam et beatae."], ["latitude", 39], ["longitude", -121], ["title", "ut"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://olsonwill.net/rey"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Dolorum nisi vel ullam nesciunt error."], ["latitude", 42], ["longitude", 63], ["title", "dolores"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://marks.net/trevor"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Quae sit perspiciatis voluptatum quidem consectetur."], ["latitude", -61], ["longitude", -148], ["title", "neque"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://berge.name/katelin.schuppe"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Consequatur neque accusamus quia ipsa doloremque aut itaque quas."], ["latitude", -76], ["longitude", 92], ["title", "et"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://romaguera.com/joe"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Eligendi ad quo voluptatem."], ["latitude", 70], ["longitude", 153], ["title", "distinctio"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://ziemann.net/bethany_crooks"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Qui quaerat ipsa qui."], ["latitude", -64], ["longitude", 68], ["title", "expedita"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://naderfisher.name/sierra_rath"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Ut et perferendis sit at omnis ipsa."], ["latitude", 10], ["longitude", 21], ["title", "et"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://feest.biz/lola.moriette"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Optio accusantium recusandae unde expedita libero vel molestias."], ["latitude", 7], ["longitude", -67], ["title", "sit"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://heidenreich.net/jabari"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Est atque consequatur quasi aliquam unde."], ["latitude", -35], ["longitude", 102], ["title", "ad"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://reilly.name/misty_hegmann"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Ea eius nihil ducimus et sequi."], ["latitude", -7], ["longitude", -13], ["title", "aut"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://kling.org/glenna.stamm"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Dolorum laborum nobis molestiae aut qui in repellendus voluptate."], ["latitude", -4], ["longitude", 159], ["title", "totam"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://hickle.info/freida.baumbach"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Quos qui ea ad."], ["latitude", 77], ["longitude", -53], ["title", "non"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://stehr.biz/theresia"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Ipsam assumenda magnam velit est ex eos nihil est."], ["latitude", 10], ["longitude", 21], ["title", "quas"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://breitenbergbogisich.org/alize_reichel"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Facilis ea provident dolorem qui enim sed consequatur."], ["latitude", 72], ["longitude", 134], ["title", "eveniet"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://kiehnbarton.com/elsie_jerde"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Commodi quibusdam a quia sed at fuga."], ["latitude", 22], ["longitude", 110], ["title", "voluptas"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://shields.org/wyatt.cremin"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Corporis quidem ut est ipsam possimus neque aut."], ["latitude", -37], ["longitude", 72], ["title", "assumenda"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://bechtelar.info/gail"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Consequatur quia facere sed sint."], ["latitude", 44], ["longitude", -6], ["title", "quo"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://gusikowski.info/vinnie.bernhard"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Facilis quaerat impedit nostrum in dolore ut minus."], ["latitude", 24], ["longitude", 35], ["title", "nihil"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://braun.net/perry"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tracks" ("created_at", "description", "latitude", "longitude", "title", "updated_at", "url", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["description", "Et odio est et necessitatibus quia."], ["latitude", -61], ["longitude", -78], ["title", "aut"], ["updated_at", Fri, 21 Feb 2014 16:15:48 UTC +00:00], ["url", "http://jakubowski.net/oscar"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mTrack Load (0.9ms)[0m  SELECT "tracks".* FROM "tracks"
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 10:16:26 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.8ms)[0m  SELECT "tracks".* FROM "tracks"
+  Rendered users/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 1013ms (Views: 987.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 10:16:27 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 10:16:27 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 10:16:27 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 10:16:27 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 10:16:27 -0600
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 10:17:34 -0600
+
+ActionController::RoutingError (No route matches [GET] "/tracks/new"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.6ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (36.1ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 10:17:34 -0600
+
+ActionController::RoutingError (No route matches [GET] "/tracks/new"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (19.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 10:33:37 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (1.0ms)[0m  SELECT "tracks".* FROM "tracks"
+  Rendered users/index.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 291ms (Views: 272.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 10:33:38 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 10:33:38 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 10:33:38 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 10:33:38 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 10:33:38 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 10:34:53 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.6ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  Rendered users/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 10:34:53 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 10:34:53 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 10:34:53 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 10:34:53 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 10:34:53 -0600
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 10:46:23 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [GET] "/tracks/new"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.9ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (42.6ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 10:46:25 -0600
+
+ActionController::RoutingError (No route matches [GET] "/tracks/new"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (16.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 10:46:25 -0600
+
+ActionController::RoutingError (No route matches [GET] "/tracks/new"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (17.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 10:47:05 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.3ms)
+Completed 200 OK in 17ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 10:51:24 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (30.0ms)
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 10:51:56 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.3ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 10:52:37 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.2ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 10:52:53 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.1ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 11:28:17 -0600
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.8ms)[0m  SELECT "tracks".* FROM "tracks"
+  Rendered users/index.html.erb within layouts/application (49.0ms)
+Completed 200 OK in 289ms (Views: 285.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 11:28:17 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 11:28:17 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 11:28:17 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 11:28:17 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 11:28:17 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAttatchmentFieldToTracks (20140221173258)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "tracks" ADD COLUMN "clip_file_name" character varying(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "tracks" ADD COLUMN "clip_content_type" character varying(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "tracks" ADD COLUMN "clip_file_size" integer[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "tracks" ADD COLUMN "clip_updated_at" timestamp
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140221173258"]]
+  [1m[35m (10.5ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 11:43:06 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.6ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 11:43:06 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.2ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 11:45:03 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test", "description"=>"testtesttest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fac42a65838 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-1461-a5e7ko>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Completed 500 Internal Server Error in 35ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: clip):
+  app/controllers/tracks_controller.rb:6:in `create'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.5ms)
+  [1m[36mTrack Load (2.4ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 11:48:14 -0600
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.7ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  Rendered users/index.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 29ms (Views: 26.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 11:48:15 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 11:48:15 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 11:48:15 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 11:48:15 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 11:48:15 -0600
+  [1m[35mTrack Load (1.1ms)[0m  SELECT "tracks".* FROM "tracks" ORDER BY "tracks"."id" DESC LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "tracks"[0m
+  [1m[35mTrack Load (0.5ms)[0m  SELECT "tracks".* FROM "tracks"
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 11:48:51 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.4ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 11:52:12 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test", "description"=>"testtesttest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fac42913890 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-1461-7a8lsv>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Completed 500 Internal Server Error in 1ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: clip):
+  app/controllers/tracks_controller.rb:6:in `create'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.9ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 11:54:06 -0600
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.1ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 11:54:19 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test", "description"=>"testtesttest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fac42aa52d0 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-1461-h9m3ls>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Completed 500 Internal Server Error in 12ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: clip):
+  app/controllers/tracks_controller.rb:6:in `create'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.9ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 11:58:35 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.7ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 11:58:45 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test", "description"=>"testtest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fac4109dba8 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-1461-hx91dw>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `has_attached_file' for #<Class:0x007fac4110e5d8>):
+  app/models/track.rb:3:in `<class:Track>'
+  app/models/track.rb:1:in `<top (required)>'
+  app/controllers/tracks_controller.rb:6:in `create'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 12:02:25 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mTrack Load (0.7ms)[0m  SELECT "tracks".* FROM "tracks"
+  Rendered users/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 319ms (Views: 304.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 12:02:25 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 12:02:25 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 12:02:25 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 12:02:25 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 12:02:25 -0600
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:02:28 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.9ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:02:54 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test", "description"=>"testtest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac460fd90 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-1xec2dt>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Completed 500 Internal Server Error in 11ms
+
+Paperclip::Errors::MissingRequiredValidatorError (Paperclip::Errors::MissingRequiredValidatorError):
+  app/controllers/tracks_controller.rb:6:in `create'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.1ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:09:28 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.6ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:09:38 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test", "description"=>"test testtest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac3917d68 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-kqulk4>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/a34972fc9153914cc6652e4f8757fcf320140221-3041-1dn30z0'
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/f0936074bf143df524ce65545356721320140221-3041-1hbwmjv'
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  Rendered tracks/new.html.erb (1.7ms)
+Completed 200 OK in 123ms (Views: 3.9ms | ActiveRecord: 2.6ms)
+  [1m[36mTrack Load (1.4ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:13:28 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.7ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:13:44 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"blah", "description"=>"blah", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac46ee748 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-55bhhi>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/d0de956ecba6fdfe7732d0cae71c0af020140221-3041-6jcykd'
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/cfefa56c386c58fe3c9fb6e5c6b2b4b120140221-3041-1isjw1p'
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  Rendered tracks/new.html.erb (1.3ms)
+Completed 200 OK in 77ms (Views: 3.3ms | ActiveRecord: 2.2ms)
+  [1m[36mTrack Load (1.3ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:14:52 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.7ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:15:45 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.3ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:15:57 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test", "description"=>"testtesttest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac3a8e2a0 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-1x6f956>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/13c584a63f4208f5d0f227a489e87c1120140221-3041-1qvcqk5'
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/900f16c1848cfe568bc864c6c3ad3d6620140221-3041-n3lidc'
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  Rendered tracks/new.html.erb (1.2ms)
+Completed 200 OK in 68ms (Views: 3.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:16:46 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.7ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:16:55 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"blah", "description"=>"testtestest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac3c1e570 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-r2nt2l>, @original_filename="Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"Drake ft. Majid Jordan - Hold On We're Going Home @NsrPanama.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/8f156246624a3f13052256eced0f29e120140221-3041-1l4fdex'
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/64e65c86aef8323d53069268e8325f8d20140221-3041-13kp1dz'
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  Rendered tracks/new.html.erb (1.5ms)
+Completed 200 OK in 96ms (Views: 3.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:19:28 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.0ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:20:16 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"sdafa", "description"=>"adsfdas", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac455c150 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-1kts6hn>, @original_filename="01 Cameras.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"01 Cameras.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/0b12facf74837eb8b578fdad6ccb518020140221-3041-j4dnxz'
+[paperclip] Content Type Spoof: Filename 01_Cameras.mp3 (["audio/mpeg"]), content type discovered from file command: application/octet-stream. See documentation to allow this combination.
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/7d8df825119dd570625d675e64b40b0020140221-3041-5nqgo6'
+[paperclip] Content Type Spoof: Filename 01_Cameras.mp3 (["audio/mpeg"]), content type discovered from file command: application/octet-stream. See documentation to allow this combination.
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  Rendered tracks/new.html.erb (2.2ms)
+Completed 200 OK in 42ms (Views: 4.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:23:51 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.8ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:24:40 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"blah", "description"=>"testtesttest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac715e118 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-16siqu0>, @original_filename="04 Folk Lore.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"04 Folk Lore.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/67e427488904dda35bf77a6c5a5874f120140221-3041-1nno8v4'
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/130d93cf622d912792c82d16deaa833920140221-3041-jiqazi'
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  Rendered tracks/new.html.erb (1.1ms)
+Completed 200 OK in 55ms (Views: 2.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:26:02 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.7ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:26:16 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"te", "description"=>"testtest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007f9ac3a3f448 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-3041-isstbj>, @original_filename="04 Folk Lore.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"04 Folk Lore.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/021570a62ab05cceb87a5789db2d6f1020140221-3041-7qudxp'
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/65c958e8790cd9da3b9ae37e639f449920140221-3041-1r8v81l'
+  [1m[35mSQL (4.4ms)[0m  INSERT INTO "tracks" ("clip_content_type", "clip_file_name", "clip_file_size", "clip_updated_at", "created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["clip_content_type", "audio/mp3"], ["clip_file_name", "04_Folk_Lore.mp3"], ["clip_file_size", 2989513], ["clip_updated_at", Fri, 21 Feb 2014 18:26:16 UTC +00:00], ["created_at", Fri, 21 Feb 2014 18:26:16 UTC +00:00], ["description", "testtest"], ["title", "te"], ["updated_at", Fri, 21 Feb 2014 18:26:16 UTC +00:00]]
+[paperclip] saving /tracks/clips/000/000/051/original/04_Folk_Lore.mp3
+[AWS S3 200 1.608818 0 retries] put_object(:acl=>:public_read,:bucket_name=>"soundmap",:content_length=>2989513,:content_type=>"audio/mp3",:data=>Paperclip::UploadedFileAdapter: 04 Folk Lore.mp3,:key=>"tracks/clips/000/000/051/original/04_Folk_Lore.mp3")  
+
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/tracks/51
+Completed 302 Found in 2250ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/tracks/51" for 127.0.0.1 at 2014-02-21 12:26:18 -0600
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"51"}
+Completed 500 Internal Server Error in 1ms
+
+ActionView::MissingTemplate (Missing template tracks/show with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/justinpark/Desktop/DBC/phase_3/soundmaps/app/views"
+):
+  actionpack (4.0.2) lib/action_view/path_set.rb:46:in `find'
+  actionpack (4.0.2) lib/action_view/lookup_context.rb:122:in `find'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:393:in `_run__1784224910503499938__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__3831541010119877518__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.5ms)
+  [1m[36mTrack Load (1.3ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[36mTrack Load (2.2ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks" ORDER BY "tracks"."id" ASC LIMIT 1
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:41:03 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (6.4ms)
+Completed 200 OK in 35ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:41:19 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"testtest2", "description"=>"testtesttesttesttest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fd40ca7a8b8 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-4160-7upfii>, @original_filename="13 How to Skin a Cat.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"13 How to Skin a Cat.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/7139205989ac674ec372fbfc4b3f691a20140221-4160-1voigwl'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/3d58ce44e850a0ac2b38e0fcc7a324ac20140221-4160-1nvxpy8'
+  [1m[36m (1.0ms)[0m  [1mROLLBACK[0m
+  Rendered tracks/new.html.erb (2.1ms)
+Completed 200 OK in 402ms (Views: 5.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:43:56 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.7ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:44:10 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test2", "description"=>"test2test2test2", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fd40cd74208 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-4160-e5gmkj>, @original_filename="13 How to Skin a Cat.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"13 How to Skin a Cat.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Completed 500 Internal Server Error in 4ms
+
+ArgumentError (You must pass in either :matches or :not to the validator):
+  app/models/track.rb:7:in `<class:Track>'
+  app/models/track.rb:1:in `<top (required)>'
+  app/controllers/tracks_controller.rb:6:in `create'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.3ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:45:27 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.5ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:46:02 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test2", "description"=>"test2test2test2", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fd40cf35da8 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-4160-r0mzuj>, @original_filename="13 How to Skin a Cat.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"13 How to Skin a Cat.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/e9b740586bf40dacd1426f3d7970725f20140221-4160-1st9ysh'
+  [1m[35m (0.3ms)[0m  BEGIN
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/776f8bc394393b90650a76db017dad2420140221-4160-qa6k7p'
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  Rendered tracks/new.html.erb (2.1ms)
+Completed 200 OK in 64ms (Views: 4.7ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:46:30 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test2", "description"=>"test2test2test2", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fd40fbc7290 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-4160-1mjpkb5>, @original_filename="13 How to Skin a Cat.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"13 How to Skin a Cat.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/a935c05b503fa827223f9254a35efad620140221-4160-32ethr'
+  [1m[35m (0.4ms)[0m  BEGIN
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/77b91651c7773d3bfdc29de0475d1a5420140221-4160-szykl0'
+  [1m[36mSQL (4.4ms)[0m  [1mINSERT INTO "tracks" ("clip_content_type", "clip_file_name", "clip_file_size", "clip_updated_at", "created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["clip_content_type", "audio/mp3"], ["clip_file_name", "13_How_to_Skin_a_Cat.mp3"], ["clip_file_size", 3482008], ["clip_updated_at", Fri, 21 Feb 2014 18:46:30 UTC +00:00], ["created_at", Fri, 21 Feb 2014 18:46:30 UTC +00:00], ["description", "test2test2test2"], ["title", "test2"], ["updated_at", Fri, 21 Feb 2014 18:46:30 UTC +00:00]]
+[paperclip] saving /tracks/clips/000/000/052/original/13_How_to_Skin_a_Cat.mp3
+[AWS S3 200 1.218299 0 retries] put_object(:acl=>:public_read,:bucket_name=>"soundmap",:content_length=>3482008,:content_type=>"audio/mp3",:data=>Paperclip::UploadedFileAdapter: 13 How to Skin a Cat.mp3,:key=>"tracks/clips/000/000/052/original/13_How_to_Skin_a_Cat.mp3")  
+
+  [1m[35m (0.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/tracks/52
+Completed 302 Found in 1712ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/tracks/52" for 127.0.0.1 at 2014-02-21 12:46:31 -0600
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"52"}
+Completed 500 Internal Server Error in 2ms
+
+ActionView::MissingTemplate (Missing template tracks/show with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/justinpark/Desktop/DBC/phase_3/soundmaps/app/views"
+):
+  actionpack (4.0.2) lib/action_view/path_set.rb:46:in `find'
+  actionpack (4.0.2) lib/action_view/lookup_context.rb:122:in `find'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:393:in `_run__4379631467007247587__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__260835538103861826__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+=======
   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
   [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -8564,6 +9592,7 @@ Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:11:15 -0600
 
 ActionController::RoutingError (No route matches [GET] "/tracks/new"):
   actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+>>>>>>> 37cb2cfab21d2690f659f4f53349df1cdf79ba34
   actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
   railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
   railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
@@ -8583,6 +9612,114 @@ ActionController::RoutingError (No route matches [GET] "/tracks/new"):
   rack (1.5.2) lib/rack/lock.rb:17:in `call'
   rack (1.5.2) lib/rack/content_length.rb:14:in `call'
   rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+<<<<<<< HEAD
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+  [1m[36mTrack Load (25.5ms)[0m  [1mSELECT "tracks".* FROM "tracks" ORDER BY "tracks"."id" DESC LIMIT 1[0m
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:51:09 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.1ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:52:57 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test3", "description"=>"test3test3test3", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fd40f88ba40 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-4160-1v3vmqq>, @original_filename="14 Whatcha Drinkin'.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"14 Whatcha Drinkin'.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/8c5424db3526985941f2eb325b4ef9d420140221-4160-i3589e'
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/8f955a98536b32f275a14bb5ee931cbd20140221-4160-1obgmeb'
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "tracks" ("clip_content_type", "clip_file_name", "clip_file_size", "clip_updated_at", "created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["clip_content_type", "audio/mp3"], ["clip_file_name", "14_Whatcha_Drinkin'.mp3"], ["clip_file_size", 2935242], ["clip_updated_at", Fri, 21 Feb 2014 18:52:57 UTC +00:00], ["created_at", Fri, 21 Feb 2014 18:52:57 UTC +00:00], ["description", "test3test3test3"], ["title", "test3"], ["updated_at", Fri, 21 Feb 2014 18:52:57 UTC +00:00]]
+[paperclip] saving /tracks/clips/000/000/053/original/14_Whatcha_Drinkin'.mp3
+[AWS S3 200 1.252313 0 retries] put_object(:acl=>:public_read,:bucket_name=>"soundmap",:content_length=>2935242,:content_type=>"audio/mp3",:data=>Paperclip::UploadedFileAdapter: 14 Whatcha Drinkin'.mp3,:key=>"tracks/clips/000/000/053/original/14_Whatcha_Drinkin'.mp3")  
+
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/tracks/53
+Completed 302 Found in 1454ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/tracks/53" for 127.0.0.1 at 2014-02-21 12:52:58 -0600
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"53"}
+Completed 500 Internal Server Error in 2ms
+
+ActionView::MissingTemplate (Missing template tracks/show with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/justinpark/Desktop/DBC/phase_3/soundmaps/app/views"
+):
+  actionpack (4.0.2) lib/action_view/path_set.rb:46:in `find'
+  actionpack (4.0.2) lib/action_view/lookup_context.rb:122:in `find'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:393:in `_run__4379631467007247587__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__260835538103861826__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+=======
   /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
   /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
   /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
@@ -8630,6 +9767,7 @@ Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:54:43 -0600
 
 ActionController::RoutingError (No route matches [GET] "/tracks/new"):
   actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+>>>>>>> 37cb2cfab21d2690f659f4f53349df1cdf79ba34
   actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
   railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
   railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
@@ -8649,6 +9787,114 @@ ActionController::RoutingError (No route matches [GET] "/tracks/new"):
   rack (1.5.2) lib/rack/lock.rb:17:in `call'
   rack (1.5.2) lib/rack/content_length.rb:14:in `call'
   rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+<<<<<<< HEAD
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.5ms)
+  [1m[36mTrack Load (0.9ms)[0m  [1mSELECT "tracks".* FROM "tracks" ORDER BY "tracks"."id" DESC LIMIT 1[0m
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:55:56 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.3ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:56:21 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test file over 4mb", "description"=>"yeah!", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fd40f94b6b0 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-4160-nqgfhx>, @original_filename="08 Terms of Psychic Warfare.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"08 Terms of Psychic Warfare.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/c4d2af98262f4ca1a85bff020b867d5b20140221-4160-1mhkf3z'
+  [1m[35m (0.4ms)[0m  BEGIN
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/7b12d59acae9709228259a9ba795e34520140221-4160-s1ru1n'
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "tracks" ("clip_content_type", "clip_file_name", "clip_file_size", "clip_updated_at", "created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["clip_content_type", "audio/mp3"], ["clip_file_name", "08_Terms_of_Psychic_Warfare.mp3"], ["clip_file_size", 4155437], ["clip_updated_at", Fri, 21 Feb 2014 18:56:21 UTC +00:00], ["created_at", Fri, 21 Feb 2014 18:56:21 UTC +00:00], ["description", "yeah!"], ["title", "test file over 4mb"], ["updated_at", Fri, 21 Feb 2014 18:56:21 UTC +00:00]]
+[paperclip] saving /tracks/clips/000/000/054/original/08_Terms_of_Psychic_Warfare.mp3
+[AWS S3 200 7.385951 0 retries] put_object(:acl=>:public_read,:bucket_name=>"soundmap",:content_length=>4155437,:content_type=>"audio/mp3",:data=>Paperclip::UploadedFileAdapter: 08 Terms of Psychic Warfare.mp3,:key=>"tracks/clips/000/000/054/original/08_Terms_of_Psychic_Warfare.mp3")  
+
+  [1m[35m (4.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/tracks/54
+Completed 302 Found in 7525ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/tracks/54" for 127.0.0.1 at 2014-02-21 12:56:28 -0600
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"54"}
+Completed 500 Internal Server Error in 2ms
+
+ActionView::MissingTemplate (Missing template tracks/show with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/justinpark/Desktop/DBC/phase_3/soundmaps/app/views"
+):
+  actionpack (4.0.2) lib/action_view/path_set.rb:46:in `find'
+  actionpack (4.0.2) lib/action_view/lookup_context.rb:122:in `find'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:393:in `_run__4379631467007247587__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__260835538103861826__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+=======
   /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
   /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
   /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
@@ -8664,6 +9910,7 @@ Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 13:01:26 -0600
 
 ActionController::RoutingError (No route matches [GET] "/tracks/new"):
   actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+>>>>>>> 37cb2cfab21d2690f659f4f53349df1cdf79ba34
   actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
   railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
   railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
@@ -8683,6 +9930,195 @@ ActionController::RoutingError (No route matches [GET] "/tracks/new"):
   rack (1.5.2) lib/rack/lock.rb:17:in `call'
   rack (1.5.2) lib/rack/content_length.rb:14:in `call'
   rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+<<<<<<< HEAD
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.7ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:56:54 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.0ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+  [1m[35mTrack Load (0.5ms)[0m  SELECT "tracks".* FROM "tracks" ORDER BY "tracks"."id" DESC LIMIT 1
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 12:58:50 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.5ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  Rendered users/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 35ms (Views: 32.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 12:58:50 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 12:58:50 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 12:58:50 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 12:58:50 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 12:58:50 -0600
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:59:02 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (3.2ms)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:59:02 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.0ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:59:19 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"omaha", "description"=>"nebraska track", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fd40cfc44e0 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-4160-1ncmxje>, @original_filename="14 Whatcha Drinkin'.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"14 Whatcha Drinkin'.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/76902c513c807fbf1616406525b3410620140221-4160-un0vl1'
+  [1m[35m (0.5ms)[0m  BEGIN
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/b9bf826d3b1a3f2ce8a76c917166f40a20140221-4160-1rn6fck'
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "tracks" ("clip_content_type", "clip_file_name", "clip_file_size", "clip_updated_at", "created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["clip_content_type", "audio/mp3"], ["clip_file_name", "14_Whatcha_Drinkin'.mp3"], ["clip_file_size", 2935242], ["clip_updated_at", Fri, 21 Feb 2014 18:59:19 UTC +00:00], ["created_at", Fri, 21 Feb 2014 18:59:19 UTC +00:00], ["description", "nebraska track"], ["title", "omaha"], ["updated_at", Fri, 21 Feb 2014 18:59:19 UTC +00:00]]
+[paperclip] saving /tracks/clips/000/000/055/original/14_Whatcha_Drinkin'.mp3
+[AWS S3 200 1.484867 0 retries] put_object(:acl=>:public_read,:bucket_name=>"soundmap",:content_length=>2935242,:content_type=>"audio/mp3",:data=>Paperclip::UploadedFileAdapter: 14 Whatcha Drinkin'.mp3,:key=>"tracks/clips/000/000/055/original/14_Whatcha_Drinkin'.mp3")  
+
+  [1m[35m (2.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/tracks/55
+Completed 302 Found in 1582ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/tracks/55" for 127.0.0.1 at 2014-02-21 12:59:21 -0600
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"55"}
+Completed 500 Internal Server Error in 1ms
+
+ActionView::MissingTemplate (Missing template tracks/show with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/justinpark/Desktop/DBC/phase_3/soundmaps/app/views"
+):
+  actionpack (4.0.2) lib/action_view/path_set.rb:46:in `find'
+  actionpack (4.0.2) lib/action_view/lookup_context.rb:122:in `find'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:393:in `_run__4379631467007247587__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__260835538103861826__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-21 12:59:26 -0600
+Processing by UsersController#index as HTML
+  [1m[36mTrack Load (0.5ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
+  Rendered users/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-21 12:59:26 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-21 12:59:26 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-21 12:59:26 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 12:59:26 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 12:59:26 -0600
+=======
   /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
   /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
   /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
@@ -8785,3 +10221,4 @@ Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-21 13:19:51 
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-21 13:19:51 -0600
+>>>>>>> 37cb2cfab21d2690f659f4f53349df1cdf79ba34
