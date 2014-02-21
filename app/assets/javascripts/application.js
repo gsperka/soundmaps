@@ -2,18 +2,21 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require_tree .
-
+//= require turbolinks
 
 $(document).ready(function() {
+
   var geocoder,
-      address;
+      map,
+      address,
+      markers = new Array(),
+      user_markers = new Array();
 
   $('#geocoder').submit(function(event) {
     event.preventDefault();
     address = $('#geocoder input[name = location]').val();
     codeAddress();
   });
-
 
   $('#login_modal').hide();
   $('#signup_modal').hide();
@@ -49,7 +52,29 @@ $(document).ready(function() {
     $('#signup_modal').hide();
     $('#audio_modal').hide();
     $("#overlay").hide();
-  });
+
+  })
+
+  $('#toggle_markers').click(function() {
+    if(markers[1].getVisible() == true) {
+      for(var i = 0; i < markers.length; i++) markers[i].setVisible(false);
+    }
+    else {
+      for(var i = 0; i < markers.length; i++) markers[i].setVisible(true);
+    }
+  })
+
+  $('#toggle_user_markers').click(function() {
+    for(var i = 0; i < markers.length; i++) markers[i].setVisible(false);
+
+    if(user_markers[1].getVisible() == true) {
+      for(var i = 0; i < markers.length; i++) user_markers[i].setVisible(false);
+    }
+    else {
+      for(var i = 0; i < markers.length; i++) user_markers[i].setVisible(true);
+    }
+  })
+
 
   function initialize() {
     geocoder = new google.maps.Geocoder();
@@ -58,12 +83,10 @@ $(document).ready(function() {
       zoom: 3
     };
 
-  map = new google.maps.Map(document.getElementById("map-canvas"),
-        mapOptions);
+    map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
     function createMarker(point,map, html) {
       var marker = new google.maps.Marker({position: point, map: map});
-
       var infoWindow = new google.maps.InfoWindow();
 
       google.maps.event.addListener(infoWindow, 'domready', audioSetup);
@@ -79,17 +102,18 @@ $(document).ready(function() {
     for(var i = 0; i < tracks.length; i++) {
       var point = new google.maps.LatLng(tracks[i].latitude , tracks[i].longitude);
       var marker = new createMarker(point, map, "<button href='#' data-link='"+tracks[i].url+"' class='play'>Play</button><br><p>"+tracks[i].title+"</p><br><p>"+tracks[i].description+"</p>");
-      marker.setMap(map);
-
+      markers.push(marker)
     }
-
-
+    for(var i = 0; i < user_tracks.length; i++) {
+      var point = new google.maps.LatLng(user_tracks[i].latitude , user_tracks[i].longitude);
+      var marker = new createMarker(point, map, "<button href='#' data-link='"+user_tracks[i].url+"' class='play'>Play</button><br><p>"+user_tracks[i].title+"</p><br><p>"+user_tracks[i].description+"</p>");
+      marker.setVisible(false)
+      user_markers.push(marker)
+    }
   }
 
   function codeAddress() {
-    console.log(geocoder);
     geocoder.geocode( { 'address': address}, function(results, status) {
-      console.log(status);
       if (status == google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
         map.setZoom(13);
@@ -117,7 +141,8 @@ $(document).ready(function() {
     })
   }
 
+
 });
 
-//= require turbolinks
+
 
