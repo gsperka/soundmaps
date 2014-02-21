@@ -1,7 +1,7 @@
 Soundmaps
 =========
 
-Application that allows you to upload and sample soundbytes from across the globe.
+Application that allows you to upload and sample sounds from across the globe.
 
 Getting Started
 ===============
