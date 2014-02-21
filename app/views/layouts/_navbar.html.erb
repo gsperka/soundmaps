@@ -1,0 +1,18 @@
+<nav class="nav-links">
+  <ul>
+    <li><a href="/" id="logo">SoundMap</a></li>
+    <% if session[:current_user_id] %>
+      <li id="logout"><%= link_to "Sign Out", logout_path %></li>
+      <li id="profile_link"><%= link_to "My Profile", user_path(session[:current_user_id])%></li>
+    <%else%>
+      <li><a href="/users/new" id ="sign">Sign Up</a></li>
+      <li id="log">
+        <%= form_for(:session, url: login_path, class: "login") do |f| %>
+          <p><%= f.text_field :username, :placeholder => 'Username' %></p>
+          <p><%= f.password_field :password, :placeholder => 'Password' %></p>
+          <%= f.submit "Log in" %>
+        <% end %>
+      </li>
+    <%end%>
+  </ul>
+</nav>
