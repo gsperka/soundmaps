@@ -8859,3 +8859,180 @@ ActionView::MissingTemplate (Missing template tracks/show with {:locale=>[:en], 
   [1m[36mTrack Load (1.3ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
   [1m[36mTrack Load (2.2ms)[0m  [1mSELECT "tracks".* FROM "tracks"[0m
   [1m[35mTrack Load (0.6ms)[0m  SELECT "tracks".* FROM "tracks" ORDER BY "tracks"."id" ASC LIMIT 1
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:41:03 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (6.4ms)
+Completed 200 OK in 35ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:41:19 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"testtest2", "description"=>"testtesttesttesttest", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fd40ca7a8b8 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-4160-7upfii>, @original_filename="13 How to Skin a Cat.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"13 How to Skin a Cat.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/7139205989ac674ec372fbfc4b3f691a20140221-4160-1voigwl'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/3d58ce44e850a0ac2b38e0fcc7a324ac20140221-4160-1nvxpy8'
+  [1m[36m (1.0ms)[0m  [1mROLLBACK[0m
+  Rendered tracks/new.html.erb (2.1ms)
+Completed 200 OK in 402ms (Views: 5.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:43:56 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (0.7ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:44:10 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test2", "description"=>"test2test2test2", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fd40cd74208 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-4160-e5gmkj>, @original_filename="13 How to Skin a Cat.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"13 How to Skin a Cat.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Completed 500 Internal Server Error in 4ms
+
+ArgumentError (You must pass in either :matches or :not to the validator):
+  app/models/track.rb:7:in `<class:Track>'
+  app/models/track.rb:1:in `<top (required)>'
+  app/controllers/tracks_controller.rb:6:in `create'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.3ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2014-02-21 12:45:27 -0600
+Processing by TracksController#new as HTML
+  Rendered tracks/new.html.erb (1.5ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:46:02 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test2", "description"=>"test2test2test2", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fd40cf35da8 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-4160-r0mzuj>, @original_filename="13 How to Skin a Cat.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"13 How to Skin a Cat.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/e9b740586bf40dacd1426f3d7970725f20140221-4160-1st9ysh'
+  [1m[35m (0.3ms)[0m  BEGIN
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/776f8bc394393b90650a76db017dad2420140221-4160-qa6k7p'
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  Rendered tracks/new.html.erb (2.1ms)
+Completed 200 OK in 64ms (Views: 4.7ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2014-02-21 12:46:30 -0600
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KIvBo8fsOD4zkae1ozzPHtyzFUBkQEl1re/6NSe83Pc=", "track"=>{"title"=>"test2", "description"=>"test2test2test2", "clip"=>#<ActionDispatch::Http::UploadedFile:0x007fd40fbc7290 @tempfile=#<Tempfile:/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/RackMultipart20140221-4160-1mjpkb5>, @original_filename="13 How to Skin a Cat.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[clip]\"; filename=\"13 How to Skin a Cat.mp3\"\r\nContent-Type: audio/mp3\r\n">}, "commit"=>"Map It!"}
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/a935c05b503fa827223f9254a35efad620140221-4160-32ethr'
+  [1m[35m (0.4ms)[0m  BEGIN
+Command :: file -b --mime-type '/var/folders/7d/0bb_vzln3lj7pvyrx2xdg_xh0000gn/T/77b91651c7773d3bfdc29de0475d1a5420140221-4160-szykl0'
+  [1m[36mSQL (4.4ms)[0m  [1mINSERT INTO "tracks" ("clip_content_type", "clip_file_name", "clip_file_size", "clip_updated_at", "created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["clip_content_type", "audio/mp3"], ["clip_file_name", "13_How_to_Skin_a_Cat.mp3"], ["clip_file_size", 3482008], ["clip_updated_at", Fri, 21 Feb 2014 18:46:30 UTC +00:00], ["created_at", Fri, 21 Feb 2014 18:46:30 UTC +00:00], ["description", "test2test2test2"], ["title", "test2"], ["updated_at", Fri, 21 Feb 2014 18:46:30 UTC +00:00]]
+[paperclip] saving /tracks/clips/000/000/052/original/13_How_to_Skin_a_Cat.mp3
+[AWS S3 200 1.218299 0 retries] put_object(:acl=>:public_read,:bucket_name=>"soundmap",:content_length=>3482008,:content_type=>"audio/mp3",:data=>Paperclip::UploadedFileAdapter: 13 How to Skin a Cat.mp3,:key=>"tracks/clips/000/000/052/original/13_How_to_Skin_a_Cat.mp3")  
+
+  [1m[35m (0.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/tracks/52
+Completed 302 Found in 1712ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/tracks/52" for 127.0.0.1 at 2014-02-21 12:46:31 -0600
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"52"}
+Completed 500 Internal Server Error in 2ms
+
+ActionView::MissingTemplate (Missing template tracks/show with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/justinpark/Desktop/DBC/phase_3/soundmaps/app/views"
+):
+  actionpack (4.0.2) lib/action_view/path_set.rb:46:in `find'
+  actionpack (4.0.2) lib/action_view/lookup_context.rb:122:in `find'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:393:in `_run__4379631467007247587__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__260835538103861826__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/justinpark/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/justinpark/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+  [1m[36mTrack Load (25.5ms)[0m  [1mSELECT "tracks".* FROM "tracks" ORDER BY "tracks"."id" DESC LIMIT 1[0m
