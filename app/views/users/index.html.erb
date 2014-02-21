@@ -1,18 +1,15 @@
-<%= javascript_tag do %>
-  window.tracks = <%=raw Track.all.to_json %>
-<% end %>
+<div id="login">
 
-<div id="map-canvas"></div>
 
-<form id='geocoder'>
-  <input id='address' type='textbox' name='location' value='Chicago, IL'>
-  <input type='submit' value='Geocode'>
-</form>
 
 
   <div id='song'>
     <audio controls>
-
+      <source src="horse.mp3" type="audio/mpeg">
+      <source src="horse.ogg" type="audio/ogg">
+      <embed height="50" width="100" src="horse.mp3">
     </audio>
   </div>
 
+
+</div>

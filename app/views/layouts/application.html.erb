@@ -4,9 +4,6 @@
   <title>Project</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgR5AK13N6RoESZzQTkayssSuIbwhwayM&sensor=true">
-  </script>
   <link href='http://fonts.googleapis.com/css?family=Kavoon' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Averia+Libre' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
@@ -18,7 +15,6 @@
     <li><a href="/" id="logo">SoundMap</a></li>
     <% if session[:current_user_id] %>
     <li id="logout"><%= link_to "Sign Out", logout_path %></li>
-    <li id="profile_link"><%= link_to "My Profile", user_path(session[:current_user_id])%></li>
     <%else%>
     <li><a href="/users/new" id ="sign">Sign Up</a></li>
     <li id="log"><%= form_for(:session, url: login_path, class: "login") do |f| %>
