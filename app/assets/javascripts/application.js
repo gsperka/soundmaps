@@ -92,6 +92,8 @@ $(document).ready(function() {
       google.maps.event.addListener(infoWindow, 'domready', audioSetup);
 
       google.maps.event.addListener(marker, "click", function() {
+        map.setCenter(point);
+        map.setZoom(4);
         infoWindow.setContent(html);
         infoWindow.setPosition(point);
         infoWindow.open(map);
@@ -146,9 +148,4 @@ $(document).ready(function() {
       $("#player").attr("type", 'audio/mp3');
     })
   }
-
-
 });
-
-
-
