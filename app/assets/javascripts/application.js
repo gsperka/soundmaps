@@ -101,12 +101,12 @@ $(document).ready(function() {
 
     for(var i = 0; i < tracks.length; i++) {
       var point = new google.maps.LatLng(tracks[i].latitude , tracks[i].longitude);
-      var marker = new createMarker(point, map, "<button href='#' data-link='"+tracks[i].url+"' class='play'>Play</button><br><p>"+tracks[i].title+"</p><br><p>"+tracks[i].description+"</p>");
+      var marker = new createMarker(point, map, "<button href='#' data-link='http://s3.amazonaws.com/soundmaps/tracks/clips/000/000/041/original/" + tracks[i].clip_file_name +"' class='play'>Play</button><br><p>"+tracks[i].title+"</p><br><p>"+tracks[i].description+"</p>");
       markers.push(marker)
     }
     for(var i = 0; i < user_tracks.length; i++) {
       var point = new google.maps.LatLng(user_tracks[i].latitude , user_tracks[i].longitude);
-      var marker = new createMarker(point, map, "<button href='#' data-link='"+user_tracks[i].url+"' class='play'>Play</button><br><p>"+user_tracks[i].title+"</p><br><p>"+user_tracks[i].description+"</p>");
+      var marker = new createMarker(point, map, "<button href='#' data-link='http://s3.amazonaws.com/soundmaps/tracks/clips/000/000/041/original/" + user_tracks[i].clip_file_name + "' class='play'>Play</button><br><p>"+user_tracks[i].title+"</p><br><p>"+user_tracks[i].description+"</p>");
       marker.setVisible(false)
       user_markers.push(marker)
     }
@@ -141,6 +141,8 @@ $(document).ready(function() {
 
   function audioSetup(){
     $(".play").click(function(event){
+      debugger
+
       $("#player").attr("src", $(event.target).data("link"));
       $("#player").attr("type", 'audio/mp3');
     })
