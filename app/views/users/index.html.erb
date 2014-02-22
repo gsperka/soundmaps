@@ -11,14 +11,11 @@
   </form>
 
   <span id='song'>
-    <audio controls></audio>
+    <audio id='player' controls></audio>
   </span>
 </div>
 
 
-  <div id='song'>
-    <audio id='player' autoplay controls>
-  </div>
 <div id="overlay"></div>
 
 
@@ -31,12 +28,7 @@
 </div>
 
 <div id="audio_modal">
-  <%= form_for(:track, url: '/tracks') do |f| %>
-    <p><%= f.text_field :title, placeholder: 'Title' %></p>
-    <p><%= f.text_field :description, placeholder: 'Description'  %></p>
-    <p><%= f.file_field :clip %></p>
-    <p><%= f.submit 'Map It!' %></p>
-  <% end %>
+  <%= render '/tracks/new' %>
 </div>
 
 
