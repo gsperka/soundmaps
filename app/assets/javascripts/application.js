@@ -126,6 +126,10 @@ $(document).ready(function() {
           infoWindow.setContent("<button href='#' class='audio_link'>Create New Track</button>");
           infoWindow.setPosition(results[0].geometry.location);
           infoWindow.open(map);
+          var latitude = (results[0].geometry.location.d);
+          var longitude = (results[0].geometry.location.e);
+          document.getElementById('lon').value = longitude;
+          document.getElementById('lat').value = latitude;
         });
       return marker;
       } else {
@@ -137,8 +141,9 @@ $(document).ready(function() {
 
   function audioSetup(){
     $(".play").click(function(event){
-      $("#player").attr("src", $(event.target).data("link"))
-      $("#player").attr("type", 'audio/mp3')
+
+      $("#player").attr("src", $(event.target).data("link"));
+      $("#player").attr("type", 'audio/mp3');
     })
   }
 

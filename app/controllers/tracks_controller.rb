@@ -18,6 +18,6 @@ class TracksController < ActionController::Base
 	end
 
 	def track_params
-		params.require(:track).permit(:clip, :title, :description)
+		params.require(:track).permit(:clip, :title, :description, :longitude, :latitude)
 	end
 end
