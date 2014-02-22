@@ -138,6 +138,7 @@ $(document).ready(function() {
   function audioSetup(){
     $(".play").click(function(event){
       $("#player").attr("src", $(event.target).data("link"))
+      $("#player").attr("type", 'audio/mp3')
     })
   }
 

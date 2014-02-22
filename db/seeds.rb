@@ -11,9 +11,9 @@ User.create(username: 'user1', password: '1234', password_confirmation: '1234', 
 User.create(username: 'user2', password: '1234', password_confirmation: '1234', email: Faker::Internet.email)
 
 20.times do
-  Track.create(user_id: 1, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, title: Faker::Lorem.word, description: Faker::Lorem.sentence, url: Faker::Internet.url)
+  Track.create(user_id: 1, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, title: Faker::Lorem.word, description: Faker::Lorem.sentence, url: 'http://a.tumblr.com/tumblr_lru9k44AkK1qjt2y4o1.mp3')
 end
 
 20.times do
-  Track.create(user_id: 2, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, title: Faker::Lorem.word, description: Faker::Lorem.sentence, url: Faker::Internet.url)
+  Track.create(user_id: 2, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, title: Faker::Lorem.word, description: Faker::Lorem.sentence, url: "http://a.tumblr.com/tumblr_lru9k44AkK1qjt2y4o1.mp3")
 end

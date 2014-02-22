@@ -3,6 +3,7 @@ class TracksController < ActionController::Base
 
 	def create
 		@track = Track.new(track_params)
+		@track.url = @track.clip.url
 
 		if @track.save
 			puts 'ASDLFKAJ$RLFIJF$'
