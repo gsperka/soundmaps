@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140221173258) do
     t.float    "latitude"
     t.string   "title"
     t.text     "description"
-    t.string   "url"
+    t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "clip_file_name"

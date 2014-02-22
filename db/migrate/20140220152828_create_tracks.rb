@@ -6,7 +6,7 @@ class CreateTracks < ActiveRecord::Migration
       t.float :latitude
       t.string :title
       t.text :description
-      t.string :url
+      t.text :url
       t.timestamps
     end
   end
