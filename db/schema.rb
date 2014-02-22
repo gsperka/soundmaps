@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20140221173258) do
 
   create_table "tracks", force: true do |t|
     t.integer  "user_id"
-    t.integer  "longitude"
-    t.integer  "latitude"
+    t.float    "longitude"
+    t.float    "latitude"
     t.string   "title"
     t.text     "description"
     t.string   "url"

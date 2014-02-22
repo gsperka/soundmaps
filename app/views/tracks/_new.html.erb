@@ -1,0 +1,9 @@
+  <%= form_for(:track, url: '/tracks') do |f| %>
+    <p><%= f.text_field :title, placeholder: 'Title' %></p>
+    <p><%= f.text_field :description, placeholder: 'Description'  %></p>
+    <p><%= f.file_field :clip %></p>
+    <input id='lon' type='hidden' name='track[longitude]' value=''></input>
+    <input id='lat' type='hidden' name='track[latitude]' value=''></input>
+    <p><%= f.submit 'Map It!' %></p>
+  <% end %>
+  <%= @longitude %>
