@@ -3,7 +3,7 @@
     <li><%= link_to "SoundMap", root_path, :id => 'logo' %></li>
     <% if session[:current_user_id] %>
       <li id="logout"><%= link_to "Sign Out", logout_path %></li>
-      <li id="profile_link">Welcome, <%=User.find(1).username.capitalize%></li>
+      <li id="profile_link">Welcome, <%=User.find(session[:current_user_id]).username.capitalize%></li>
     <%else%>
       <li><a href="#" id="signup">Sign Up</a></li>
       <li><a href="#" id="signin">Sign In</a></li>
