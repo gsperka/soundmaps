@@ -7,8 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'faker'
 
-User.create(username: 'user1', password: '1234', password_confirmation: '1234')
+User.create(username: 'user1', password: '1234', password_confirmation: '1234', email: Faker::Internet.email)
+User.create(username: 'user2', password: '1234', password_confirmation: '1234', email: Faker::Internet.email)
 
-50.times do 
+20.times do
   Track.create(user_id: 1, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, title: Faker::Lorem.word, description: Faker::Lorem.sentence, url: Faker::Internet.url)
+end
+
+20.times do
+  Track.create(user_id: 2, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, title: Faker::Lorem.word, description: Faker::Lorem.sentence, url: Faker::Internet.url)
 end

@@ -2,6 +2,16 @@
   window.tracks = <%=raw Track.all.to_json %>
 <% end %>
 
+<% if session[:current_user_id] %>
+  <%= javascript_tag do %>
+    window.user_tracks = <%=raw User.find(session[:current_user_id]).tracks.to_json %>
+  <% end %>
+<% else %>
+  <%= javascript_tag do %>
+    window.user_tracks = <%= {}.to_json %>
+  <% end %>
+<% end %>
+
 <div id="map-canvas"></div>
 
 <div id='footer'>
@@ -13,6 +23,11 @@
   <span id='song'>
     <audio id='player' controls></audio>
   </span>
+
+  <button id='toggle_markers'>Toggle All Markers</button>
+  <% if session[:current_user_id] %>
+    <button id='toggle_user_markers'>Toggle User Markers</button>
+  <% end %>
 </div>
 
 
